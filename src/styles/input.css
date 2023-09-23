@@ -1,0 +1,19 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'Gotham Book';
+  src: url('../public/Gotham\ Book\ Regular.otf');
+}
+
+* {
+  font-family: 'Gotham Book', sans-serif;
+}
+
+@layer base {
+  h1 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}
