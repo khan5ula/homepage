@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Gotham Book';
-  src: url('../public/Gotham\ Book\ Regular.otf');
+  src: url('/public/Gotham Book Regular.otf');
 }
 
 * {
