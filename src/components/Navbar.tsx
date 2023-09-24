@@ -3,7 +3,7 @@ import linkedinlogo from '../assets/linkedin-logo.png'
 
 const Navbar = () => {
   return (
-    <div className="flex border-b-2 w-1/1 h-14 font-semibold items-center justify-center">
+    <div className="flex bg-white shadow-md w-1/1 h-14 items-center justify-center">
       <a href="https://github.com/khan5ula">
         <img
           className="object-cover h-3 max-w-10 hover:opacity-50 cursor-pointer mx-3"

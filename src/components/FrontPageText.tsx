@@ -8,23 +8,19 @@ const FrontPageText = () => (
         <a href="https://en.wikipedia.org/wiki/Dragon_Ball_(manga)">DBZ</a>
       </span>{' '}
       fanpage I made when I was a kid (which is unfortunately lost in time).
-      <p>
-        {<br />}Right now it's quite empty in here... I'm planning on adding
-        more stuff in the future. In the meantime, you can stalk my GitHub
-        account or connect with me on LinkedIn.
-      </p>
-      <p>
-        {<br />}
-        {<hr />}
-      </p>
-      <blockquote className="text-xl italic font-semibold text-gray-900 dark:text-white">
-        {' '}
-        {<br />}
-        Isn't it enough to see that a garden is beautiful without having to
-        believe that there are fairies at the bottom of it too?
-      </blockquote>
-      <p className="text-right mr-10">- Douglas Adams</p>
     </p>
+    <p>
+      {<br />}Right now it's quite empty in here... I'm planning on adding more
+      stuff in the future. In the meantime, you can stalk my GitHub account or
+      connect with me on LinkedIn.
+    </p>
+    <br />
+    <hr /> <br />
+    <blockquote className="text-xl italic font-semibold text-gray-900 dark:text-white">
+      Isn't it enough to see that a garden is beautiful without having to
+      believe that there are fairies at the bottom of it too?
+    </blockquote>
+    <p className="text-right mr-10">- Douglas Adams</p>
   </div>
 )
 

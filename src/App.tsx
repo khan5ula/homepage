@@ -6,9 +6,9 @@ import Footer from './components/Footer'
 
 const App = () => {
   return (
-    <div className="bg-white flex flex-col min-h-screen">
+    <div className="bg-slate-50 flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow mt-2">
+      <main className="flex-grow mt-2 md:mt-10">
         <div className="md:flex md:justify-center md:items-center h-full">
           <ProfilePic src={profile_pic} alt="Profile picture" />
           <FrontPageText />
