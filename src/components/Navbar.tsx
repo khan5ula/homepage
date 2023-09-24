@@ -15,7 +15,7 @@ const Navbar = () => {
         <img
           className="object-cover h-4 max-w-10 hover:opacity-50 cursor-pointer mx-3 mt-0.4"
           src={linkedinlogo}
-          alt="GitHub logo"
+          alt="LinkedIn logo"
         />
       </a>
     </div>
