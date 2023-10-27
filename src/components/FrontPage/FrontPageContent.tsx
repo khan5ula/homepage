@@ -1,6 +1,10 @@
-const FrontPageText = () => (
-  <div className="mx-10 text-base max-w-prose mt-10 md:mt-0">
-    <h1 className="mb-6 mt-6 text-center md:text-left">Hey 👋</h1>
+import profile_pic from '../../assets/profile_pic.jpeg'
+import ProfilePic from '../ProfilePic'
+
+const FrontPageContent = () => (
+  <div className="">
+    <ProfilePic src={profile_pic} alt="Profile picture" />
+    <h1 className="mb-6 mt-6">Hey 👋</h1>
     <p>
       My name is Kristian Hannula. Thanks for visiting my website! Although this
       site is definitely not as cool as the{' '}
@@ -24,4 +28,4 @@ const FrontPageText = () => (
   </div>
 )
 
-export default FrontPageText
+export default FrontPageContent
