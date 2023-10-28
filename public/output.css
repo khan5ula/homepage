@@ -585,6 +585,14 @@ h1 {
   margin-top: 1.5rem;
 }
 
+.ml-5 {
+  margin-left: 1.25rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -607,6 +615,14 @@ h1 {
 
 .h-8 {
   height: 2rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-5 {
+  height: 1.25rem;
 }
 
 .w-7 {
@@ -743,6 +759,10 @@ h1 {
 
 .hover\:opacity-50:hover {
   opacity: 0.5;
+}
+
+.hover\:opacity-90:hover {
+  opacity: 0.9;
 }
 
 @media (prefers-color-scheme: dark) {
