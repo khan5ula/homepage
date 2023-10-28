@@ -5,11 +5,15 @@ import Footer from './components/Footer'
 const App = () => {
   return (
     <main>
-      <div className="bg-slate-50 md:flex">
-        <Navbar />
-        <FrontPage />
-      </div>
-      <div className="">
+      <div>
+        <div className="bg-slate-50 md:flex">
+          <aside className="md:h-screen md:min-h-screen sticky top-0">
+            <Navbar />
+          </aside>
+          <main className="pb-5">
+            <FrontPage />
+          </main>
+        </div>
         <Footer />
       </div>
     </main>

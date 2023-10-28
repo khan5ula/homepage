@@ -1,10 +1,25 @@
+import { useEffect, useState } from 'react'
 import FrontPageContent from './FrontPageContent'
+import LoadingSpinner from '../LoadingSpinner'
 
 const FrontPage = () => {
-  return (
-    <div className="max-w-prose mx-10 md:mx-auto">
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const handleLoading = () => {
+      setIsLoading(false)
+    }
+
+    window.addEventListener('load', handleLoading)
+    return () => window.removeEventListener('load', handleLoading)
+  }, [])
+
+  return !isLoading ? (
+    <div className="mx-24">
       <FrontPageContent />
     </div>
+  ) : (
+    <LoadingSpinner />
   )
 }
 

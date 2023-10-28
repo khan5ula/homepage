@@ -1,9 +1,9 @@
 import profile_pic from '../../assets/profile_pic.jpeg'
-import ProfilePic from '../ProfilePic'
+import ProfilePic from './ProfilePic'
 
 const FrontPageContent = () => (
   <div>
-    <div className="md:mt-10">
+    <div className="md:mt-5">
       <ProfilePic src={profile_pic} alt="Profile picture" />
     </div>
     <h1 className="mb-6 mt-6">Hey 👋</h1>

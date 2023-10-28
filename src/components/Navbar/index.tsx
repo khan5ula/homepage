@@ -2,7 +2,7 @@ import NavbarContent from './NavbarContent'
 
 const Navbar = () => {
   return (
-    <div className="bg-slate-900 h-14 md:h-screen md:w-60 flex justify-center">
+    <div className="bg-slate-900 h-14 md:h-screen md:w-60  flex justify-center items-center md:items-baseline">
       <NavbarContent />
     </div>
   )
