@@ -2,8 +2,10 @@ import profile_pic from '../../assets/profile_pic.jpeg'
 import ProfilePic from '../ProfilePic'
 
 const FrontPageContent = () => (
-  <div className="">
-    <ProfilePic src={profile_pic} alt="Profile picture" />
+  <div>
+    <div className="md:mt-10">
+      <ProfilePic src={profile_pic} alt="Profile picture" />
+    </div>
     <h1 className="mb-6 mt-6">Hey 👋</h1>
     <p>
       My name is Kristian Hannula. Thanks for visiting my website! Although this

@@ -555,29 +555,14 @@ h1 {
   left: 50%;
 }
 
-.mx-3 {
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .mx-10 {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
 
-.mx-20 {
-  margin-left: 5rem;
-  margin-right: 5rem;
-}
-
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 }
 
 .mb-6 {
@@ -588,32 +573,16 @@ h1 {
   margin-right: 2.5rem;
 }
 
+.mr-6 {
+  margin-right: 1.5rem;
+}
+
 .mt-0 {
   margin-top: 0px;
 }
 
 .mt-6 {
   margin-top: 1.5rem;
-}
-
-.ml-3 {
-  margin-left: 0.75rem;
-}
-
-.ml-5 {
-  margin-left: 1.25rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-.mr-4 {
-  margin-right: 1rem;
-}
-
-.mr-6 {
-  margin-right: 1.5rem;
 }
 
 .flex {
@@ -644,16 +613,12 @@ h1 {
   width: 1.75rem;
 }
 
-.max-w-\[60\%\] {
-  max-width: 60%;
+.max-w-prose {
+  max-width: 65ch;
 }
 
 .max-w-xs {
   max-width: 20rem;
-}
-
-.max-w-prose {
-  max-width: 65ch;
 }
 
 .translate-x-\[-50\%\] {
@@ -713,16 +678,12 @@ h1 {
      object-fit: cover;
 }
 
-.text-left {
-  text-align: left;
+.text-center {
+  text-align: center;
 }
 
 .text-right {
   text-align: right;
-}
-
-.align-middle {
-  vertical-align: middle;
 }
 
 .text-sm {
@@ -732,11 +693,6 @@ h1 {
 
 .text-xl {
   font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
@@ -776,12 +732,13 @@ h1 {
   font-family: 'Gotham Book', sans-serif;
 }
 
-.hover\:decoration-1:hover {
-  text-decoration-thickness: 1px;
+.hover\:text-slate-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
-.hover\:decoration-2:hover {
-  text-decoration-thickness: 2px;
+.hover\:decoration-1:hover {
+  text-decoration-thickness: 1px;
 }
 
 .hover\:opacity-50:hover {
@@ -795,38 +752,10 @@ h1 {
   }
 }
 
-@media (min-width: 640px) {
-  .sm\:mx-10 {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-  }
-}
-
 @media (min-width: 768px) {
   .md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .md\:mx-0 {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
-  .md\:ml-3 {
-    margin-left: 0.75rem;
-  }
-
-  .md\:ml-2 {
-    margin-left: 0.5rem;
-  }
-
-  .md\:ml-5 {
-    margin-left: 1.25rem;
-  }
-
-  .md\:mb-5 {
-    margin-bottom: 1.25rem;
   }
 
   .md\:mb-2 {
@@ -837,16 +766,16 @@ h1 {
     margin-right: 0px;
   }
 
-  .md\:ml-8 {
-    margin-left: 2rem;
+  .md\:mt-6 {
+    margin-top: 1.5rem;
   }
 
-  .md\:ml-20 {
-    margin-left: 5rem;
+  .md\:mt-20 {
+    margin-top: 5rem;
   }
 
-  .md\:ml-10 {
-    margin-left: 2.5rem;
+  .md\:mt-10 {
+    margin-top: 2.5rem;
   }
 
   .md\:flex {
@@ -865,15 +794,8 @@ h1 {
     flex-direction: column;
   }
 
-  .md\:items-center {
-    align-items: center;
-  }
-
-  .md\:justify-center {
-    justify-content: center;
-  }
-
-  .md\:align-middle {
-    vertical-align: middle;
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
