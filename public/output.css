@@ -594,6 +594,11 @@ h1 {
   margin-right: 2.5rem;
 }
 
+.mx-20 {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -723,6 +728,10 @@ h1 {
   width: 2rem;
 }
 
+.w-96 {
+  width: 24rem;
+}
+
 .max-w-sm {
   max-width: 24rem;
 }
@@ -763,6 +772,10 @@ h1 {
   cursor: pointer;
 }
 
+.resize-none {
+  resize: none;
+}
+
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -773,6 +786,10 @@ h1 {
 
 .items-center {
   align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
 }
 
 .justify-center {
@@ -889,6 +906,10 @@ h1 {
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
+.bg-center {
+  background-position: center;
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -907,12 +928,29 @@ h1 {
   padding-bottom: 0.25rem;
 }
 
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
 .pb-5 {
   padding-bottom: 1.25rem;
 }
 
 .pt-10 {
   padding-top: 2.5rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
+.ps-10 {
+  padding-inline-start: 2.5rem;
+}
+
+.pt-5 {
+  padding-top: 1.25rem;
 }
 
 .text-center {
@@ -1056,12 +1094,24 @@ h1 {
     width: 15rem;
   }
 
+  .md\:w-80 {
+    width: 20rem;
+  }
+
   .md\:flex-col {
     flex-direction: column;
   }
 
   .md\:items-baseline {
     align-items: baseline;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start;
+  }
+
+  .md\:text-left {
+    text-align: left;
   }
 
   .md\:text-xl {

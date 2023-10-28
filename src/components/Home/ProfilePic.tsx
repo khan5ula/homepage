@@ -5,7 +5,7 @@ interface Props {
 
 const ProfilePic = ({ src, alt }: Props) => (
   <div className="flex justify-center pointer-events-none">
-    <img className="max-w-xs rounded-full mt-6" src={src} alt={alt} />
+    <img className="max-w-xs rounded-full" src={src} alt={alt} />
   </div>
 )
 

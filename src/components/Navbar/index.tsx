@@ -1,9 +1,26 @@
-import NavbarContent from './NavbarContent'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div className="bg-slate-900 h-14 md:h-screen md:w-60  flex justify-center items-center md:items-baseline">
-      <NavbarContent />
+    <div className="sticky md:top-10 text-white md:text-xl flex md:flex-col justify-center items-baseline">
+      <Link
+        className="cursor-pointer hover:text-slate-400 text-center mr-6 md:mr-0 md:mb-2"
+        to="/"
+      >
+        Home
+      </Link>
+      <Link
+        className="cursor-pointer hover:text-slate-400 text-center mr-6 md:mr-0 md:mb-2"
+        to="/blog"
+      >
+        Blog
+      </Link>
+      <Link
+        className="cursor-pointer hover:text-slate-400 text-center"
+        to="/history"
+      >
+        Page history
+      </Link>
     </div>
   )
 }

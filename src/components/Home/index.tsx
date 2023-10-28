@@ -1,9 +1,9 @@
 import profile_pic from '../../assets/profile_pic.jpeg'
 import ProfilePic from './ProfilePic'
 
-const FrontPageContent = () => (
+const Home = () => (
   <div>
-    <div className="md:mt-5">
+    <div>
       <ProfilePic src={profile_pic} alt="Profile picture" />
     </div>
     <h1 className="mb-6 mt-6">Hey 👋</h1>
@@ -30,4 +30,4 @@ const FrontPageContent = () => (
   </div>
 )
 
-export default FrontPageContent
+export default Home

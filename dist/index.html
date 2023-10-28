@@ -3,10 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="This is the website and playground of Kristian Hannula. I'm developing this website as a hobby. You can find my links here!"
+    />
     
-    <title>Kristian Hannula</title>
-    <script type="module" crossorigin src="/assets/index-ab57f23e.js"></script>
-    <link rel="stylesheet" href="/assets/index-35d988c2.css">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/apple-touch-icon-a704e5a0.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADGklEQVRYR82XDSyVURjH/y8ZFY0mrBj6kPQhrWRIm8KsiZrMUjNjkc1qMQk1UTGptflKW7pms2qktaRNiGIKLcSGRBhutwlJude9t3NenNLKxrovz3Z33+e855z/73w95304IE7N3FszBuBCARhyHDjyrzJTKqEknYvJL70zP+oyZ+6deJ7juHiVKc7SMYGJoQBiAmCwIABAH7f2SBKdkgUxuhwLCkBHvbgA1q1ZCT8XG7YcpfUdqGrq4v1lWhoI93ViR6RXMozsojq4223ELktj1ibzYQ0kQ9+Yv9vKBG62Fsy/V9aI1m4J82fMwB5rc4hifNjLlLwK0A6p+bnaID7Ilb1LED2D6Ek9Lga64JjbDlbuHn4bbT2fmR9wYCdi/fcxP+TqA5TUts8d4On1QGww1ucbfh0bh+PJDIx+lwoDYL/FFLkXfBn1naJaXMop431BZiAz4hBcp9ZRrlBg/6lb6BYPCwPw6GULylODoa6uxguWvG5DSEohmw2Vz4DOck0Ee9oxwaNxeXjV0iMMQGp+Fb/D9XSW8oItXWJ4RIqYuMr3QM+nIZgY6DLByIwiFDx/NyvAx4EvkE7IWR1dbS2s0tWe3zH8XUlGOrX2v4Fx2cSsADNe/sWZUxz4s33AlfuofNspHEA1CcP2W82YYGnde5xILpgV4EVDJwlQ46yOmZEeNpkZzm8JaCj2ctqM9VMRkMYA57As9EpGhDkFFEAml+PccWcmmEXuhmRSPm0qjwP09qq+GQqNJeq85uDIGBzIPSCVTe50lQPQ2zDtjCe5di3ZqCPSHqOwslk4gL3bzZEd/euabmjvw+GYXOEA1Mi3ekV6CFbrr2Cz4BWVg6YPA8IsAVU97eOIMG8HBpBf3oizmcX/F8DCRB9BHrZMpLimFeVvOnifjp5CTNsP6QTibpfgoKMViRWmrPza3UqIB0eZ77jNjK8zbTnF9WjupHnJpC2uj1KGJeADyYySFKrOB/81Hj4xIQD9BMBIwEEzKaVS2U8BYglAwoIAKJSxJBWn6blWNAGg6bmRqpdjMj1XDpD9n0bS88SfupsouQz7YP0AAAAASUVORK5CYII="
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABtklEQVQ4T2NUCO6oY2RkqAJidgYSwP//DD8ZGP63MiqFtgMZjGwk6IUrBRkCNKDjPzmaYXrABkgI8TBMLQ5kuHTnOUPj/D0M+WE2DHb6igzNC/YwRLoYMKjIiDAktq1i+PT1J0NNvBODoZo0Q17/Roanbz4xgA2QExdg2D85neHY5QcM2X0bGI7OyGZ49/Ebg1PeTIY1LbEMeiqSDGYpkxnefvrGML8qlMHOQInBtWA2w71n7zANOHDuHkMV0Jb2RfsY5mw5zbC+LY54A45fecggLcrHIMzPzWCdMY3h87efpBnw49cfBg42FoZlu88z1M7eBQ4nmAvef/7G8A8Y3Lxc7AxsLMzYvfDxyw8Gfh4OBpBLYppWoBhw79lbhr9AE6RE+Bi4Odhwh4EQHxeDupwog0fRXIY7T9+S5gVQLOw5c4ehLtGFYdGOswyN8/aQbkAuMH6Pzcxm+P37L4MVMCCX1EUQjgUJYV6G2eXBDBdvP2eomb0TnFjMteUYJqw8wuBtpcGgKivCENO4guHj1x8MjcmuDEbq0gyZ3esZnrz+CEkHFCVlxZCOH6TmRJiF4MxEaXYGAJd9C+TqNYOpAAAAAElFTkSuQmCC"
+    />
+    <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiIiwic2hvcnRfbmFtZSI6IiIsImljb25zIjpbeyJzcmMiOiIvYW5kcm9pZC1jaHJvbWUtMTkyeDE5Mi5wbmciLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn0seyJzcmMiOiIvYW5kcm9pZC1jaHJvbWUtNTEyeDUxMi5wbmciLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn1dLCJ0aGVtZV9jb2xvciI6IiNmZmZmZmYiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmZmZmZiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIn0=" />
+    <title>Kristian Hannula - Homepage</title>
+    <script type="module" crossorigin src="/assets/index-90ce2a42.js"></script>
+    <link rel="stylesheet" href="/assets/index-ee06c773.css">
   </head>
   <body className="bg-white">
     <div id="root"></div>
