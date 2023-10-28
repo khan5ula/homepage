@@ -7,7 +7,7 @@ const App = () => {
     <main>
       <div>
         <div className="bg-slate-50 md:flex">
-          <aside className="md:h-screen md:min-h-screen sticky top-0">
+          <aside className="md:h-screen sticky top-0">
             <Navbar />
           </aside>
           <main className="pb-5">

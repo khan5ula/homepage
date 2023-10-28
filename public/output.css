@@ -678,6 +678,14 @@ h1 {
   min-height: 100vh;
 }
 
+.min-h-full {
+  min-height: 100%;
+}
+
+.min-h-\[80\%\] {
+  min-height: 80%;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -815,6 +823,10 @@ h1 {
 
 .rounded-md {
   border-radius: 0.375rem;
+}
+
+.rounded-sm {
+  border-radius: 0.125rem;
 }
 
 .\!border-0 {
@@ -1004,6 +1016,16 @@ h1 {
 @media (min-width: 768px) {
   .md\:top-10 {
     top: 2.5rem;
+  }
+
+  .md\:mx-96 {
+    margin-left: 24rem;
+    margin-right: 24rem;
+  }
+
+  .md\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .md\:mb-2 {
