@@ -4,6 +4,8 @@ import Footer from './components/Footer'
 import History from './components/History'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
+import BlogPost from './components/Blog/BlogPost'
+import reactWithMarkdown from './content/blog_posts/react-with-markdown/react-with-markdown.md'
 
 const App = () => {
   return (
@@ -18,6 +20,10 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/history" element={<History />} />
+              <Route
+                path="/blogs/markdown-with-react-typescript-and-vite"
+                element={<BlogPost markdown={reactWithMarkdown} />}
+              />
             </Routes>
           </main>
         </div>
