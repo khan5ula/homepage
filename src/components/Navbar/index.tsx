@@ -19,7 +19,7 @@ const Navbar = () => {
         className="cursor-pointer hover:text-slate-400 text-center"
         to="/history"
       >
-        Page history
+        Site history
       </Link>
     </div>
   )
