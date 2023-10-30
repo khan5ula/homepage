@@ -16,7 +16,7 @@ const BlogPost = ({ markdown }: props) => {
           ← back to blogs
         </Link>
       </div>
-      <article className="prose">
+      <article className="prose prose-slate ">
         <Markdown>{markdown}</Markdown>
       </article>
     </div>
