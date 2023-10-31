@@ -1,46 +1,42 @@
-# Using Markdown with React + Typescript + Vite
+31.10.2023 by Kristian Hannula
 
-This post is written on markdown and rendered with a React frontend. At this moment, my website runs on React & Vite + Typescript + Tailwind CSS. In this post, I'll explain how I got markdown files working with my static react website.
+# Rendering Markdown files with React, Typescript, Vite and Tailwind CSS
 
-## Problem
+This post is written on markdown and rendered with React. Getting markdown files to render properly on my website required some tinkering and configuration, and I'll explain everything I've done in this post.
 
-So. I decided I wanted to use markdown (\*.md) to format the content on my homepage. Right now my site is very simple, consisting only of a React frontend, which means I don't have a sophisticated system for content creation or managing. My site doesn't have a node.js backend service running, so it doesn't use a database for content retrieval.
+## The problems
 
-I didn't want just to write everything as HTML, which made Markdown feel like an intuitive choice. I've seen quite a few implementations that use Markdown as the base for the content.
-
-Easy enough, right? Well, thanks to the plugins and resources available on the internet, it kinda is. After clearing out some trouble. Rendering markdown content as a string was easy thanks to the [react-markdown](https://github.com/remarkjs/react-markdown) plugin. Importing markdown files turned out to be trickier. Next, I'll go through how I got markdown files working on this site.
+So.. I decided I wanted to write the content on my website with markdown (\*.md). I've seen quite a few websites using markdown so I thought implementing markdown rendering on React application should be quite simple. I installed [react-markdown](https://github.com/remarkjs/react-markdown) plugin and tested it with a simple string. Worked nicely. Then I tried to import a markdown file and render it. Errors. After fixing that, I noticed I didn't have syntax highlighting. Took some tinkering to get that working. After that, the tab indentation needed to be fixed. After a bit of tinkering, the content finally looked pretty much how I wanted.
 
 ## How I got it working
 
 Let's go over my solution step by step.
 
-First, download react-markdown with:
+First I downloaded **react-markdown** plugin (I use **bun** instead of **npm**):
 
-```
+```javascript
 bun install react-markdown
 ```
 
-If you use npm, replace `bun` with `npm`.
-
-Import Markdown to the component that renders the markdown file. Now, rendering a markdown string should work. You can try it with a sample:
+Then, I imported the plugin to the component that renders the markdown files. Trying it out with a simple sample works:
 
 ```javascript
 import Markdown from 'react-markdown'
 
 const Component = () => {
-  const markdown = '# Hello, *World*!'
+    const markdown = '# Hello, *World*!'
 
-  return <Markdown>{markdown}</Markdown>
+    return <Markdown>{markdown}</Markdown>
 }
 
 export default Component
 ```
 
-Markdown that is provided as a string renders without a problem. However, if try to render a markdown file that has been imported to the component, Vite gives the following error:
+Markdown provided as a string rendered without a problem. However, if i tried to pass a imported markdown file to **<Markdown>**, it resulted in a following Vite error:
 
 > Failed to parse source for import analysis because the content contains invalid JS syntax. You may need to install appropriate plugins to handle the .md file format, or if it's an asset, add "\*_/_.md" to assetsInclude in your configuration.
 
-That problem was trickier to handle. I tried a few plugins and some tricks, but I just kept getting errors. Finally I found a with this solution from [this awesome article by Daniel Garcia](https://onticdani.medium.com/how-to-load-and-render-markdown-files-into-your-vite-react-app-using-typescript-ba5f79822350).
+After trying out some additional plugins and miscellaneous configurations, I found a working solution from [this awesome article by Daniel Garcia](https://onticdani.medium.com/how-to-load-and-render-markdown-files-into-your-vite-react-app-using-typescript-ba5f79822350).
 
 The key was to add a small custom plugin to vite.config.ts:
 
@@ -50,56 +46,146 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    {
-      name: 'markdown-loader',
-      transform(code, id) {
-        if (id.slice(-3) === '.md') {
-          return `export default ${JSON.stringify(code)};`
-        }
-      },
-    },
-  ],
+    plugins: [
+        react(),
+        {
+            name: 'markdown-loader',
+            transform(code, id) {
+                if (id.slice(-3) === '.md') {
+                    return `export default ${JSON.stringify(code)};`
+                }
+            },
+        },
+    ],
 })
 ```
 
-Importing works! Now, typescript warned that the module or type declaration for the markdown import couldn't be found. I created a file `globals.d.ts` with content of:
+Importing worked! Now, to get rid of typescript warning about missing module or type declaration, I created a file **globals.d.ts** to the root of my project with the content of:
 
 ```javascript
 declare module '*.md'
 ```
 
-And now the typescript server is satisfied.
+That satisfied the Typescript server.
 
-Lastly, I applied easy formatting by installing [tailwindcdd/typography package](https://tailwindcss.com/docs/typography-plugin#installation), since I use tailwindcss with my project. The package can be installed with:
+Now that importing and rendering the markdown file worked, it was time to focus on the aesthetics. The file rendered plainly, without any formatting. I applied easy (lazy) formatting by installing [tailwindcdd/typography package](https://tailwindcss.com/docs/typography-plugin#installation):
 
-```
+```javascript
 npm install -D @tailwindcss/typography
 ```
 
-The renderer should be wrapped in `<article>` tags.
+The renderer should be wrapped in **<article>** tags.
 
-A simple finished component that renders a markdown file looks like this.
+Now the rendered should be wrapped in **<article>** tags. Tailwind offers **prose** classes that were perfect for my use case. Below is a simple component using my solution so far:
 
 ```javascript
 import Markdown from 'react-markdown'
 
 interface props {
-  markdown: string;
+    markdown: string;
 }
 
 const BlogPost = ({ markdown }: props) => {
-  return (
-    <div>
-      <article className="prose">
-        <Markdown>{markdown}</Markdown>
-      </article>
-    </div>
-  )
+    return (
+        <div>
+            <article className="prose">
+                <Markdown>{markdown}</Markdown>
+            </article>
+        </div>
+    )
 }
 
 export default BlogPost
 ```
 
-Now markdown files can be imported to a React component and rendered with `react-markdown` plugin.
+Now, the overall look of the content was nice. The only issue was that there was no code highlighting. Apparently that didn't come with my lazy Typography solution. After some trial and errors, I got highlighting working on top of Typography with [react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter). The nice thing was that the highlighter comes with a big set of themes to select. I went with **tomorrow**:
+
+```javascript
+import Markdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+
+interface BlogPostProps {
+    markdown: string;
+}
+
+const BlogPost = ({ markdown }: BlogPostProps) => {
+    return (
+        <div>
+            <article className="prose">
+                <Markdown
+                    components={{
+                        code: ({ className, children, ...props }) => {
+                            const match = /language-(\w+)/.exec(className || '')
+                            return match ? (
+                                <SyntaxHighlighter
+                                    language={match[1]}
+                                    style={tomorrow}
+                                >
+                                    {String(children).replace(/\n$/, '')}
+                                </SyntaxHighlighter>
+                            ) : (
+                                <code className={className} {...props}>
+                                    {children}
+                                </code>
+                            )
+                        },
+                    }}
+                >
+                    {markdown}
+                </Markdown>
+            </article>
+        </div>
+    )
+}
+
+export default BlogPost
+```
+
+The highlighter itself worked, but now it was in conflight with Tailwind Typography package. Typography had it's own CSS for code blocks. The solution: I overwrote some Typography configurations:
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: ['/index.html', './src/**/*.{js,ts,jsx,tsx}'],
+    theme: {
+        extend: {
+            typography: {
+                DEFAULT: {
+                    css: {
+                        pre: {
+                            backgroundColor: '',
+                            padding: 0,
+                        },
+                    },
+                },
+            },
+        },
+    },
+    // eslint-disable-next-line no-undef
+    plugins: [require('@tailwindcss/typography')],
+}
+```
+
+I removed the background and padding that came with the Typography package. Now Typography and react-syntax-highlighter were not in conflict and I was quite happy with the output. The last thing that bugged me was that the code indentation was too small. Apparently that side effect came with the highlighter. As I use [prettier](https://prettier.io/) to auto-format my code, I added a special rule for markdown files to my **.prettierrc.json** configuration:
+
+```javascript
+{
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "overrides": [
+        {
+            "files": "**/*.md",
+            "options": {
+                "tabWidth": 4
+            }
+        }
+    ]
+}
+```
+
+Now my markdown files were auto-formatted with 4 spaces instead of 2.
+
+That's everything I did to render markdown files with the look I wanted.
