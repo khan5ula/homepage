@@ -6,8 +6,13 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import BlogPost from './components/Blog/BlogPost'
 import reactWithMarkdown from './content/blog_posts/react-with-markdown.md'
+import { useEffect } from 'react'
 
 const App = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <main>
       <div>
@@ -21,7 +26,7 @@ const App = () => {
               <Route path="/blog" element={<Blog />} />
               <Route path="/history" element={<History />} />
               <Route
-                path="/blogs/markdown-with-react-typescript-and-vite"
+                path="/blog/markdown-with-react-typescript-and-vite"
                 element={<BlogPost markdown={reactWithMarkdown} />}
               />
             </Routes>
