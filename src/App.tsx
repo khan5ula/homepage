@@ -5,7 +5,7 @@ import History from './components/History'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import BlogPost from './components/Blog/BlogPost'
-import reactWithMarkdown from './content/blog_posts/react-with-markdown.md'
+import reactWithMarkdown from './content/blog_posts/01-react-with-markdown.md'
 import { useEffect } from 'react'
 
 const App = () => {

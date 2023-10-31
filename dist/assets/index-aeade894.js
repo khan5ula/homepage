@@ -165,7 +165,7 @@ That satisfied the Typescript server.
 Now that importing and rendering the markdown file worked, it was time to focus on the aesthetics. The file rendered plainly, without any formatting. I applied easy (lazy) formatting by installing [tailwindcdd/typography package](https://tailwindcss.com/docs/typography-plugin#installation):
 
 \`\`\`javascript
-npm install -D @tailwindcss/typography
+bun install -D @tailwindcss/typography
 \`\`\`
 
 The renderer should be wrapped in **<article>** tags.
@@ -236,7 +236,16 @@ const BlogPost = ({ markdown }: BlogPostProps) => {
 export default BlogPost
 \`\`\`
 
-The highlighter itself worked, but now it was in conflight with Tailwind Typography package. Typography had it's own CSS for code blocks. The solution: I overwrote some Typography configurations:
+Some additional module declarations were needed:
+
+\`\`\`javascript
+declare module '*.md'
+declare module 'react-syntax-highlighter/dist/cjs/styles/prism'
+declare module 'react-syntax-highlighter'
+
+\`\`\`
+
+Now the highlighter itself worked, but it was in conflict with Tailwind Typography package. Typography had it's own CSS for code blocks. The solution: I overwrote some Typography configurations:
 
 \`\`\`javascript
 /** @type {import('tailwindcss').Config} */
