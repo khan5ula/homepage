@@ -126,7 +126,7 @@ const Component = () => {
 export default Component
 \`\`\`
 
-Markdown provided as a string rendered without a problem. However, if i tried to pass a imported markdown file to **<Markdown>**, it resulted in a following Vite error:
+Markdown provided as a string rendered without a problem. However, if I tried to pass an imported markdown file to **<Markdown>**, it resulted in a following Vite error:
 
 > Failed to parse source for import analysis because the content contains invalid JS syntax. You may need to install appropriate plugins to handle the .md file format, or if it's an asset, add "\\*_/_.md" to assetsInclude in your configuration.
 
@@ -162,7 +162,7 @@ declare module '*.md'
 
 That satisfied the Typescript server.
 
-Now that importing and rendering the markdown file worked, it was time to focus on the aesthetics. The file rendered plainly, without any formatting. I applied easy (lazy) formatting by installing [tailwindcdd/typography package](https://tailwindcss.com/docs/typography-plugin#installation):
+Now that importing and rendering the markdown file worked, it was time to focus on the aesthetics. The file rendered plainly, without any formatting. I applied easy (lazy) formatting by installing [tailwindcss/typography package](https://tailwindcss.com/docs/typography-plugin#installation):
 
 \`\`\`javascript
 bun install -D @tailwindcss/typography
@@ -170,7 +170,7 @@ bun install -D @tailwindcss/typography
 
 The renderer should be wrapped in **<article>** tags.
 
-Now the rendered should be wrapped in **<article>** tags. Tailwind offers **prose** classes that were perfect for my use case. Below is a simple component using my solution so far:
+Tailwind offers **prose** classes that were perfect for my use case. Below is a simple component using my solution so far:
 
 \`\`\`javascript
 import Markdown from 'react-markdown'
@@ -275,7 +275,7 @@ I removed the background and padding that came with the Typography package. Now 
 \`\`\`javascript
 {
     "trailingComma": "es5",
-    "tabWidth": 4,
+    "tabWidth": 2,
     "semi": false,
     "singleQuote": true,
     "overrides": [
