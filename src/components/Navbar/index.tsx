@@ -15,12 +15,6 @@ const Navbar = () => {
       >
         Blog
       </Link>
-      <Link
-        className="cursor-pointer hover:text-slate-400 text-center"
-        to="/history"
-      >
-        Site history
-      </Link>
     </div>
   )
 }
