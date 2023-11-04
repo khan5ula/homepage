@@ -4,8 +4,8 @@ interface props {
 }
 
 const ProfilePic = ({ src, alt }: props) => (
-  <div className="flex justify-center pointer-events-none mb-10">
-    <img className="max-w-xs rounded-full" src={src} alt={alt} />
+  <div className="pointer-events-none">
+    <img className="w-44 h-44 rounded-full" src={src} alt={alt} />
   </div>
 )
 

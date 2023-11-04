@@ -1,1 +1,0 @@
-import{j as e}from"./index-a814821e.js";const n=({src:s,alt:t})=>e.jsx("div",{className:"flex justify-center pointer-events-none mb-10",children:e.jsx("img",{className:"max-w-xs rounded-full",src:s,alt:t})});export{n as default};
