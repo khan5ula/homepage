@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import BlogPost from '../components/Blog/BlogPost'
+import BlogPost from './BlogPost'
 
 interface props {
   filepath: string
+  date: string
 }
 
-const MarkdownLoader = ({ filepath }: props) => {
+const PostLoader = ({ filepath, date }: props) => {
   const [markdown, setMarkdown] = useState('')
 
   useEffect(() => {
@@ -14,7 +15,7 @@ const MarkdownLoader = ({ filepath }: props) => {
       .then((data) => setMarkdown(data))
   }, [filepath])
 
-  return <BlogPost markdown={markdown} />
+  return <BlogPost markdown={markdown} date={date} />
 }
 
-export default MarkdownLoader
+export default PostLoader

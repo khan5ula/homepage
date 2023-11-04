@@ -1071,16 +1071,16 @@ h1 {
   margin-left: 1.5rem;
 }
 
-.mr-10 {
-  margin-right: 2.5rem;
-}
-
 .mr-6 {
   margin-right: 1.5rem;
 }
 
 .mt-0 {
   margin-top: 0px;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
 .flex {
@@ -1159,31 +1159,9 @@ h1 {
   text-align: center;
 }
 
-.text-right {
-  text-align: right;
-}
-
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.font-semibold {
-  font-weight: 600;
-}
-
-.italic {
-  font-style: italic;
-}
-
-.text-gray-900 {
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -1202,7 +1180,7 @@ h1 {
 @font-face {
   font-family: 'Gotham Book';
 
-  src: url('/public/Gotham Book Regular.otf');
+  src: url('/Gotham Book Regular.otf');
 }
 
 * {
@@ -1220,13 +1198,6 @@ h1 {
 
 .hover\:opacity-90:hover {
   opacity: 0.9;
-}
-
-@media (prefers-color-scheme: dark) {
-  .dark\:text-white {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
 }
 
 @media (min-width: 768px) {

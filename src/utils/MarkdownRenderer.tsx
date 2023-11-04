@@ -4,11 +4,13 @@ import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 interface props {
   markdown: string
+  date?: string
 }
 
-const MarkdownRenderer = ({ markdown }: props) => {
+const MarkdownRenderer = ({ markdown, date }: props) => {
   return (
     <article className="prose">
+      {date ? <div className="mb-5">{date} by Kristian Hannula</div> : null}
       <Markdown
         components={{
           code: ({ className, children, ...props }) => {

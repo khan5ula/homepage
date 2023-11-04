@@ -3,9 +3,10 @@ import MarkdownRenderer from '../../utils/MarkdownRenderer'
 
 interface props {
   markdown: string
+  date: string
 }
 
-const BlogPost = ({ markdown }: props) => {
+const BlogPost = ({ markdown, date }: props) => {
   return (
     <div>
       <div className="mb-5">
@@ -16,7 +17,7 @@ const BlogPost = ({ markdown }: props) => {
           ← all blog posts
         </Link>
       </div>
-      <MarkdownRenderer markdown={markdown} />
+      <MarkdownRenderer markdown={markdown} date={date} />
     </div>
   )
 }

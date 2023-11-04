@@ -1,12 +1,13 @@
-import { useEffect } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Blog from './components/Blog'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import { posts } from './content/blog_posts/posts'
 import { Post } from './types'
-import MarkdownLoader from './utils/MarkdownLoader'
+
+const PostLoader = lazy(() => import('./components/Blog/PostLoader'))
+const Blog = lazy(() => import('./components/Blog'))
 
 const App = () => {
   useEffect(() => {
@@ -23,13 +24,25 @@ const App = () => {
           <main className="min-h-screen pt-10 pb-5 mx-10 md:mx-20">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/blog" element={<Blog posts={posts as Post[]} />} />
+              <Route
+                path="/blog"
+                element={
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <Blog posts={posts as Post[]} />
+                  </Suspense>
+                }
+              />
               {posts.map((post) => (
                 <Route
                   key={post.url}
                   path={`/blog/${post.url}`}
                   element={
-                    <MarkdownLoader filepath={`/blog-posts/${post.url}.md`} />
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <PostLoader
+                        filepath={`/blog-posts/${post.url}.md`}
+                        date={post.date}
+                      />
+                    </Suspense>
                   }
                 />
               ))}

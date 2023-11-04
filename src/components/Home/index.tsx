@@ -5,17 +5,15 @@ import MarkdownRenderer from '../../utils/MarkdownRenderer'
 const ProfilePic = lazy(() => import('./ProfilePic'))
 
 const Home = () => (
-  <div className="article prose">
+  <div>
     <Suspense
-      fallback={
-        <div className="flex justify-center">
-          <h1>🌝</h1>
-        </div>
-      }
+      fallback={<div className="flex justify-center">Loading face...</div>}
     >
       <ProfilePic src={profile_pic} alt="Profile picture" />
     </Suspense>
-    <MarkdownRenderer markdown={introduction} />
+    <div className="article prose">
+      <MarkdownRenderer markdown={introduction} />
+    </div>
   </div>
 )
 
