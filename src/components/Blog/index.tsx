@@ -1,7 +1,12 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Post } from '../../types'
 
-const Blog = () => {
+interface props {
+  posts: Post[]
+}
+
+const Blog = ({ posts }: props) => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -13,23 +18,22 @@ const Blog = () => {
           <tr>
             <th>Blog title</th>
             <th>Date</th>
-            <th>Tags</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <Link
-                className="cursor-pointer underline underline-offset-4 hover:decoration-1 hover:text-slate-400"
-                to={'/blog/markdown-with-react-typescript-and-vite'}
-              >
-                Rendering Markdown files with React, Typescript, Vite and
-                Tailwind CSS
-              </Link>
-            </td>
-            <td>31.10.2023</td>
-            <td>react, tailwind, markdown, vite</td>
-          </tr>
+          {posts.map((post) => (
+            <tr key={post.url}>
+              <td>
+                <Link
+                  className="cursor-pointer underline underline-offset-4 hover:decoration-1 hover:text-slate-400"
+                  to={`/blog/${post.url}`}
+                >
+                  {post.title}
+                </Link>
+              </td>
+              <td>{post.date}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
