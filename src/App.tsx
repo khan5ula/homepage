@@ -17,17 +17,17 @@ const App = () => {
   return (
     <main>
       <div>
-        <div className="bg-slate-50 md:flex flex-wrap">
+        <div className="bg-slate-50 md:flex">
           <aside className="sticky top-0 bg-slate-900 h-14 md:h-screen md:w-60 flex justify-center items-center md:items-baseline">
             <Navbar />
           </aside>
-          <main className="min-h-screen pt-10 pb-5 mx-10 md:mx-20 md:flex-1 relative">
+          <main className="min-h-screen pt-10 pb-5 mx-10 md:mx-20">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route
                 path="/blog"
                 element={
-                  <Suspense>
+                  <Suspense fallback={<div>Loading...</div>}>
                     <Blog posts={posts as Post[]} />
                   </Suspense>
                 }
@@ -37,7 +37,7 @@ const App = () => {
                   key={post.url}
                   path={`/blog/${post.url}`}
                   element={
-                    <Suspense fallback={<LoadingBlog />}>
+                    <Suspense fallback={<div>Loading...</div>}>
                       <PostLoader
                         filepath={`/blog-posts/${post.url}.md`}
                         date={post.date}
@@ -52,67 +52,6 @@ const App = () => {
         <Footer />
       </div>
     </main>
-  )
-}
-
-const LoadingBlog = () => {
-  return (
-    <div>
-      <div className="animate-pulse">
-        <div className="w-full space-y-6 py-1">
-          <div className="grid grid-cols-3 gap-4">
-            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-          </div>
-          <br />
-          <div className="grid grid-cols-3 gap-4">
-            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-          </div>
-          <br />
-          <div className="h-2 bg-slate-700 rounded"></div>
-          <div className="space-y-3">
-            <div className="grid grid-cols-3 gap-4">
-              <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-              <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-            </div>
-            <div className="h-2 bg-slate-700 rounded"></div>
-            <div className="h-2 bg-slate-700 rounded"></div>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-              <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-            </div>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-            </div>
-            <br />
-            <div className="grid grid-cols-3 gap-4">
-              <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-              <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-            </div>
-            <div className="h-2 bg-slate-700 rounded"></div>
-            <div className="h-2 bg-slate-700 rounded"></div>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-              <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-            </div>
-            <br />
-            <div className="grid grid-cols-3 gap-4">
-              <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-              <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-            </div>
-            <div className="h-2 bg-slate-700 rounded"></div>
-            <div className="h-2 bg-slate-700 rounded"></div>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-              <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-            </div>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-              <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   )
 }
 
