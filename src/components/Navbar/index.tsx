@@ -10,7 +10,7 @@ const Navbar = () => {
         Home
       </Link>
       <Link
-        className="cursor-pointer hover:text-slate-400 text-center mr-6 md:mr-0 md:mb-2"
+        className="cursor-pointer hover:text-slate-400 text-center md:mr-0 md:mb-2"
         to="/blog"
       >
         Blog

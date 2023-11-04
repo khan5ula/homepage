@@ -1,5 +1,8 @@
 import { Post } from '../../types'
 
+// url must match filename of the .md
+// new posts to top of the list
+
 export const posts: Post[] = [
   {
     url: 'markdown-with-react-typescript-and-vite',
