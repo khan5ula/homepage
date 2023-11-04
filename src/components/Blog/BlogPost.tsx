@@ -1,5 +1,6 @@
+import { Suspense, lazy } from 'react'
 import { Link } from 'react-router-dom'
-import MarkdownRenderer from '../../utils/MarkdownRenderer'
+const MarkdownRenderer = lazy(() => import('../../utils/MarkdownRenderer'))
 
 interface props {
   markdown: string
@@ -17,7 +18,9 @@ const BlogPost = ({ markdown, date }: props) => {
           ← all blog posts
         </Link>
       </div>
-      <MarkdownRenderer markdown={markdown} date={date} />
+      <Suspense>
+        <MarkdownRenderer markdown={markdown} date={date} />
+      </Suspense>
     </div>
   )
 }

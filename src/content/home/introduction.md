@@ -1,5 +1,7 @@
-I'm Kristian, a fledgling programmer, computer science student, human-computer interaction & open-source enthustiast, and a dad.
+I'm Kristian, a fledgling programmer, computer science student, enthustiast in HCI and FOSS, and a dad.
 
-This site serves two purposes. Tinkering with it is a nice hobby, and it allows me to post stuff related to my interests somewhere.
+I tinker with this website as a hobby, and post stuff here that's related to my interests. As I slowly develop as a programmer, I like helping others learn too whenever I get a chance.
 
-One of my biggest regrets in life is losing the [DBZ](<https://en.wikipedia.org/wiki/Dragon_Ball_(manga)>) fan website I created as a kid. It had background music, cursor animations and everything. Well, I'll try to keep this site more mature.
+I was one of those kids who rushed back home from school to loiter around the internet. One of my biggest regrets in life is losing the [DBZ](<https://en.wikipedia.org/wiki/Dragon_Ball_(manga)>) fan website I created as back then. It had background music, cursor animations and everything.
+
+Well, I'll try to keep this site more mature...
