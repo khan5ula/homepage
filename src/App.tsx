@@ -1,12 +1,11 @@
 import { Suspense, lazy, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import PostLoader from './components/Blog/PostLoader'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import { posts } from './content/blog_posts/posts'
 import { Post } from './types'
-
-const PostLoader = lazy(() => import('./components/Blog/PostLoader'))
 const Blog = lazy(() => import('./components/Blog'))
 
 const App = () => {
@@ -27,7 +26,7 @@ const App = () => {
               <Route
                 path="/blog"
                 element={
-                  <Suspense fallback={<div>Loading...</div>}>
+                  <Suspense>
                     <Blog posts={posts as Post[]} />
                   </Suspense>
                 }
@@ -37,12 +36,10 @@ const App = () => {
                   key={post.url}
                   path={`/blog/${post.url}`}
                   element={
-                    <Suspense fallback={<div>Loading...</div>}>
-                      <PostLoader
-                        filepath={`/blog-posts/${post.url}.md`}
-                        date={post.date}
-                      />
-                    </Suspense>
+                    <PostLoader
+                      filepath={`/blog-posts/${post.url}.md`}
+                      date={post.date}
+                    />
                   }
                 />
               ))}
