@@ -1,1 +1,0 @@
-import{j as e}from"./index-ba974487.js";const n=({src:s,alt:o})=>e.jsx("div",{className:"pointer-events-none",children:e.jsx("img",{className:"w-44 h-44 rounded-full",src:s,alt:o})});export{n as default};
