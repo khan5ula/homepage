@@ -1,7 +1,8 @@
 ---
-import '../styles/global.css'
-import Navbar from '../components/Navbar.astro'
+import { ViewTransitions } from 'astro:transitions'
 import Footer from '../components/Footer.astro'
+import Navbar from '../components/Navbar.astro'
+import '../styles/global.css'
 ---
 
 <!doctype html>
@@ -32,6 +33,7 @@ import Footer from '../components/Footer.astro'
     />
     <link rel="manifest" href="/favicon/site.webmanifest" />
     <title>Kristian Hannula - Homepage</title>
+    <ViewTransitions />
   </head>
   <body class="bg-slate-50">
     <aside

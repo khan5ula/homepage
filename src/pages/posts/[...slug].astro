@@ -15,5 +15,7 @@ const { Content } = await entry.render()
 ---
 
 <MarkdownPostLayout frontmatter={entry.data}>
-  <Content />
+  <div transition:animate="slide">
+    <Content />
+  </div>
 </MarkdownPostLayout>
