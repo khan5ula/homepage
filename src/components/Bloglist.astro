@@ -1,0 +1,35 @@
+---
+import type { Post } from '../types.ts'
+
+interface Props {
+  posts: Post[]
+}
+
+const { posts } = Astro.props
+---
+
+<table>
+  <thead>
+    <tr>
+      <th>Blog title</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      posts.map((post) => (
+        <tr>
+          <td>
+            <a
+              href={`/posts/${post.slug}/`}
+              class="cursor-pointer underline underline-offset-4 hover:decoration-1 hover:text-slate-400"
+            >
+              {post.data.title}
+            </a>
+          </td>
+          <td>{post.data.pubDate}</td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>

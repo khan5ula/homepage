@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Tags from '../components/Tags.astro'
+import Bloglist from '../components/Bloglist.astro'
+const allPosts = await getCollection('posts')
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+---
+
+<BaseLayout>
+  <html lang="en">
+    <div class="flex justify-center">
+      <body>
+        <article class="prose">
+          <Tags tags={tags} />
+          <Bloglist posts={allPosts} />
+        </article>
+      </body>
+    </div>
+  </html>
+</BaseLayout>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import * as introduction from '../content/home/introduction.md'
+const Content = introduction.default
+---
+
+<BaseLayout title="Welcome to Astro.">
+  <main class="flex justify-center">
+    <article class="prose">
+      <div class="flex justify-center">
+        <img
+          class="w-44 h-44 rounded-full pointer-events-none mb-5"
+          alt={'Profile picture'}
+          src="../../profile_pic.jpeg"
+          <p
+        />
+      </div>
+      <Content />
+    </article>
+  </main>
+</BaseLayout>

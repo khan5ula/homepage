@@ -1,0 +1,47 @@
+---
+import '../styles/global.css'
+import Navbar from '../components/Navbar.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="This is the website and playground of Kristian Hannula. I'm developing this website as a hobby. You can find my links here!"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <title>Kristian Hannula - Homepage</title>
+  </head>
+  <body class="bg-slate-50">
+    <aside
+      class="sticky top-0 bg-slate-900 h-14 flex justify-center items-center shrink-0"
+    >
+      <Navbar />
+    </aside>
+    <main class="min-h-screen pt-5 pb-5 mx-10 md:flex md:justify-center">
+      <slot />
+    </main>
+    <footer><Footer /></footer>
+  </body>
+</html>
