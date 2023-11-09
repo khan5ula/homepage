@@ -7,6 +7,15 @@ export default {
         DEFAULT: {
           css: {
             maxWidth: '68ch',
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+            code: {
+              color: 'inherit',
+            },
           },
         },
       },

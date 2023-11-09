@@ -17,7 +17,7 @@ So.. I decided I wanted to write the content on my website with markdown (\*.md)
 
 Let's go over my solution step by step.
 
-First I downloaded **react-markdown** plugin (I use **bun** instead of **npm**):
+First I downloaded `react-markdown` plugin (I use `bun` instead of `npm`):
 
 ```javascript
 bun install react-markdown
@@ -29,15 +29,15 @@ Then, I imported the plugin to the component that renders the markdown files. Tr
 import Markdown from 'react-markdown'
 
 const Component = () => {
-    const markdown = '# Hello, *World*!'
+  const markdown = '# Hello, *World*!'
 
-    return <Markdown>{markdown}</Markdown>
+  return <Markdown>{markdown}</Markdown>
 }
 
 export default Component
 ```
 
-Markdown provided as a string rendered without a problem. However, if I tried to pass an imported markdown file to **<Markdown>**, it resulted in a following Vite error:
+Markdown provided as a string rendered without a problem. However, if I tried to pass an imported markdown file to `<Markdown>` it resulted in a following Vite error:
 
 > Failed to parse source for import analysis because the content contains invalid JS syntax. You may need to install appropriate plugins to handle the .md file format, or if it's an asset, add "\*_/_.md" to assetsInclude in your configuration.
 
@@ -51,21 +51,21 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-        react(),
-        {
-            name: 'markdown-loader',
-            transform(code, id) {
-                if (id.slice(-3) === '.md') {
-                    return `export default ${JSON.stringify(code)};`
-                }
-            },
-        },
-    ],
+  plugins: [
+    react(),
+    {
+      name: 'markdown-loader',
+      transform(code, id) {
+        if (id.slice(-3) === '.md') {
+          return `export default ${JSON.stringify(code)};`
+        }
+      },
+    },
+  ],
 })
 ```
 
-Importing worked! Now, to get rid of typescript warning about missing module or type declaration, I created a file **globals.d.ts** to the root of my project with the content of:
+Importing worked! Now, to get rid of typescript warning about missing module or type declaration, I created a file `globals.d.ts` to the root of my project with the content of:
 
 ```javascript
 declare module '*.md'
@@ -79,25 +79,25 @@ Now that importing and rendering the markdown file worked, it was time to focus 
 bun install -D @tailwindcss/typography
 ```
 
-The renderer should be wrapped in **<article>** tags.
+The renderer should be wrapped in `<article>` tags.
 
-Tailwind offers **prose** classes that were perfect for my use case. Below is a simple component using my solution so far:
+Tailwind offers `prose` classes that were perfect for my use case. Below is a simple component using my solution so far:
 
 ```javascript
 import Markdown from 'react-markdown'
 
 interface props {
-    markdown: string;
+  markdown: string;
 }
 
 const BlogPost = ({ markdown }: props) => {
-    return (
-        <div>
-            <article className="prose">
-                <Markdown>{markdown}</Markdown>
-            </article>
-        </div>
-    )
+  return (
+    <div>
+      <article className="prose">
+        <Markdown>{markdown}</Markdown>
+      </article>
+    </div>
+  )
 }
 
 export default BlogPost
@@ -111,37 +111,34 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 interface BlogPostProps {
-    markdown: string;
+  markdown: string;
 }
 
 const BlogPost = ({ markdown }: BlogPostProps) => {
-    return (
-        <div>
-            <article className="prose">
-                <Markdown
-                    components={{
-                        code: ({ className, children, ...props }) => {
-                            const match = /language-(\w+)/.exec(className || '')
-                            return match ? (
-                                <SyntaxHighlighter
-                                    language={match[1]}
-                                    style={tomorrow}
-                                >
-                                    {String(children).replace(/\n$/, '')}
-                                </SyntaxHighlighter>
-                            ) : (
-                                <code className={className} {...props}>
-                                    {children}
-                                </code>
-                            )
-                        },
-                    }}
-                >
-                    {markdown}
-                </Markdown>
-            </article>
-        </div>
-    )
+  return (
+    <div>
+      <article className="prose">
+        <Markdown
+          components={{
+            code: ({ className, children, ...props }) => {
+              const match = /language-(\w+)/.exec(className || '')
+              return match ? (
+                <SyntaxHighlighter language={match[1]} style={tomorrow}>
+                  {String(children).replace(/\n$/, '')}
+                </SyntaxHighlighter>
+              ) : (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              )
+            },
+          }}
+        >
+          {markdown}
+        </Markdown>
+      </article>
+    </div>
+  )
 }
 
 export default BlogPost
@@ -161,27 +158,27 @@ Now the highlighter itself worked, but it was in conflict with Tailwind Typograp
 ```javascript
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ['/index.html', './src/**/*.{js,ts,jsx,tsx}'],
-    theme: {
-        extend: {
-            typography: {
-                DEFAULT: {
-                    css: {
-                        pre: {
-                            backgroundColor: '',
-                            padding: 0,
-                        },
-                    },
-                },
+  content: ['/index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            pre: {
+              backgroundColor: '',
+              padding: 0,
             },
+          },
         },
+      },
     },
-    // eslint-disable-next-line no-undef
-    plugins: [require('@tailwindcss/typography')],
+  },
+  // eslint-disable-next-line no-undef
+  plugins: [require('@tailwindcss/typography')],
 }
 ```
 
-I removed the background and padding that came with the Typography package. Now Typography and react-syntax-highlighter were not in conflict and I was quite happy with the output. The last thing that bugged me was that the code indentation was too small. Apparently that side effect came with the highlighter. As I use [prettier](https://prettier.io/) to auto-format my code, I added a special rule for markdown files to my **.prettierrc.json** configuration:
+I removed the background and padding that came with the Typography package. Now Typography and react-syntax-highlighter were not in conflict and I was quite happy with the output. The last thing that bugged me was that the code indentation was too small. Apparently that side effect came with the highlighter. As I use [prettier](https://prettier.io/) to auto-format my code, I added a special rule for markdown files to my `.prettierrc.json` configuration:
 
 ```javascript
 {
