@@ -7,8 +7,6 @@ author: 'Kristian Hannula'
 tags: ['react', 'typescript', 'markdown', 'tailwind']
 ---
 
-# Rendering Markdown files with React, Typescript, Vite and Tailwind CSS
-
 This post is written on markdown and rendered with React. Getting markdown files to render properly on my website required some tinkering and configuration, and I'll explain everything I've done in this post.
 
 ## The problems
