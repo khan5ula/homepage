@@ -6,6 +6,10 @@ interface Props {
 }
 
 const { posts } = Astro.props
+
+const orderedPosts = posts
+  .filter((post) => post.data.published)
+  .sort((a, b) => (a.data.pubDate > b.data.pubDate ? 1 : -1))
 ---
 
 <table>
@@ -17,11 +21,11 @@ const { posts } = Astro.props
   </thead>
   <tbody>
     {
-      posts.map((post) => (
+      orderedPosts.map((post) => (
         <tr>
           <td>
             <a
-              href={`/posts/${post.slug}/`}
+              href={`/posts/${post.data.url}/`}
               class="cursor-pointer underline underline-offset-4 hover:decoration-1 hover:text-slate-400"
             >
               {post.data.title}
