@@ -1,6 +1,8 @@
 ---
 title: 'Rendering Markdown files with React, Typescript, Vite and Tailwind CSS'
+url: 'rendering-markdown-files-with-react-typescript-vite-and-tailwind'
 pubDate: 31/10/2023
+published: true
 author: 'Kristian Hannula'
 tags: ['react', 'typescript', 'markdown', 'tailwind']
 ---
