@@ -43,7 +43,7 @@ Yeah... Fetching from a public folder on a static website just did not feel righ
 
 While Next.js seems to be currently be the most popular and perhaps the most feature-rich framework around React, I think [Astro](https://astro.build/) has a smart philosophy when it comes to rendering content. Astro renders content (React components included) in static HTML by default, which reduces the amount of JS required to load by client. Astro is also quite versatile, allowing me to use multiple libraries for components if I want. So, after having fun with couple of Astro tutorials, I decided to wrap my site inside Astro.
 
-The migration was quite easy to do after completing the Astro Blog tutorial. I placed my routed components to pages and astro took care of routing. Then I placed my posts into a designated content folder and told astro to handle the dynamic routing with slug, similarly to how it's handled in next.js.
+The migration was quite easy to do after completing the Astro Blog tutorial. I placed my routed components to a folder called `places` and astro took care of routing. Then I placed my posts into a designated `content` folder and, after which Astro handled dynamic routing with slug, similarly to how it's handled in next.js.
 
 My unholy method of fetching posts from a public folder evolved to this:
 
@@ -55,7 +55,7 @@ import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro'
 export async function getStaticPaths() {
   const blogEntries = await getCollection('posts')
   return blogEntries.map((entry) => ({
-    params: { slug: entry.data.url },
+      params: { slug: entry.data.url },
     props: { entry },
   }))
 }

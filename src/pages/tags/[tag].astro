@@ -44,7 +44,7 @@ const { posts } = Astro.props
             <tr>
               <td>
                 <a
-                  href={`/posts/${post.slug}/`}
+                  href={`/posts/${post.data.url}/`}
                   class="cursor-pointer underline underline-offset-4 hover:decoration-1 hover:text-slate-400"
                 >
                   {post.data.title}
