@@ -2,11 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@font-face {
-  font-family: 'Gotham Book';
-  src: url('/Gotham Book Regular.otf');
-}
-
 * {
   font-family: 'Gotham Book', sans-serif;
 }
@@ -16,4 +11,11 @@
     font-size: 2rem;
     font-weight: 500;
   }
+}
+
+@font-face {
+  font-family: 'Gotham Book';
+  font-style: 'sans-serif';
+  src: url('/Gotham Book Regular.otf');
+  font-display: swap;
 }
