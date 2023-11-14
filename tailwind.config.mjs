@@ -6,7 +6,7 @@ export default {
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: '68ch',
+            maxWidth: '80ch',
             'code::before': {
               content: '""',
             },
@@ -15,6 +15,18 @@ export default {
             },
             code: {
               color: 'inherit',
+            },
+            h1: {
+              color: '#ffd000',
+            },
+            h2: {
+              color: 'antiquewhite',
+            },
+            a: {
+              color: '#ffd000',
+              '&:hover': {
+                textDecorationThickness: '1px',
+              },
             },
           },
         },

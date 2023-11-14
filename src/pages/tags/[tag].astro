@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import type { Post } from '../../types'
-
+import Bloglist from '../../components/Bloglist.astro'
 export async function getStaticPaths() {
   const allPosts: Post[] = await getCollection('posts')
 
@@ -25,46 +25,11 @@ const { posts } = Astro.props
 ---
 
 <BaseLayout pageTitle={tag}>
-  <article class="prose" <h1>
-    <div class="flex justify-center text-xs">
-      Posts tagged with {tag}
-      {':'}
+  <article class="prose">
+    <div class="flex flex-wrap justify-center">
+      Posts tagged with <span class="text-[#ffd000] ml-2">{tag}</span>
     </div>
-
-    <table class="mt-5">
-      <thead>
-        <tr>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          posts.map((post) => (
-            <tr>
-              <td>
-                <a
-                  href={`/posts/${post.data.url}/`}
-                  class="cursor-pointer underline underline-offset-4 hover:decoration-1 hover:text-slate-400"
-                >
-                  {post.data.title}
-                </a>
-              </td>
-              <td>{post.data.pubDate}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-      <tfoot
-        ><tr
-          ><td
-            ><a
-              href="/blog"
-              class="cursor-pointer underline underline-offset-4 hover:decoration-1 hover:text-slate-400 text-xs"
-              >← all blog posts</a
-            ></td
-          ></tr
-        ></tfoot
-      >
-    </table>
+    <Bloglist posts={posts} />
+    <div class="text-right"><a href="/blog">← all blog posts</a></div>
   </article>
 </BaseLayout>

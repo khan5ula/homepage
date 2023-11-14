@@ -1,9 +1,11 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
 
 * {
-  font-family: 'Gotham Book', sans-serif;
+  font-family: 'Roboto Mono', 'sans serif';
+  color: antiquewhite;
 }
 
 @layer base {
@@ -14,8 +16,8 @@
 }
 
 @font-face {
-  font-family: 'Gotham Book';
-  font-style: 'sans-serif';
-  src: url('/Gotham Book Regular.otf');
+  font-family: 'Roboto Mono';
+  font-style: 'sans serif';
+  src: url('/https://fonts.googleapis.com/css?family=Inconsolata');
   font-display: swap;
 }
