@@ -14,7 +14,16 @@ const { entry } = Astro.props
 const { Content } = await entry.render()
 ---
 
-<MarkdownPostLayout frontmatter={entry.data}>
-  <h1>{entry.data.title}</h1>
-  <Content />
-</MarkdownPostLayout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={entry.data.description} />
+    <title>{entry.data.title} - Kristian Hannula</title>
+  </head>
+  <MarkdownPostLayout frontmatter={entry.data}>
+    <h1>{entry.data.title}</h1>
+    <Content />
+  </MarkdownPostLayout>
+
+
+</html>

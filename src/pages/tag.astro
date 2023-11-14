@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content'
+import Tags from '../components/Tags.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+const allPosts = await getCollection('posts')
+
+const tags = [
+  ...new Set(
+    allPosts
+      .filter((post) => post.data.published)
+      .map((post) => post.data.tags)
+      .flat()
+  ),
+]
+---
+
+<BaseLayout>
+  <article class="prose">
+    <Tags tags={tags} />
+  </article>
+</BaseLayout>

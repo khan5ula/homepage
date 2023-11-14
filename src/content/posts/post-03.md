@@ -1,6 +1,7 @@
 ---
 title: 'Fixing disable touchpad while typing on laptop with Linux'
 url: 'fixing-disable-touchpad-while-typing-on-linux-laptop'
+description: 'If disable while typing does not work on your laptop with Linux, this might help you. Read the whole thing in my blog.'
 published: true
 pubDate: 13/11/2023
 author: 'Kristian Hannula'

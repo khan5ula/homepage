@@ -30,12 +30,12 @@ const orderedPosts = posts
           <td class="py-7">
             <a
               href={`/posts/${post.data.url}/`}
-              class="cursor-pointer underline underline-offset-4 hover:decoration-1 "
+              class="cursor-pointer underline underline-offset-4 hover:decoration-1 text-xl"
             >
               {post.data.title}
             </a>
           </td>
-          <td>{post.data.pubDate}</td>
+          <td class="align-middle">{post.data.pubDate}</td>
         </tr>
       ))
     }

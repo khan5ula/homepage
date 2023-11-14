@@ -1,6 +1,7 @@
 ---
 title: 'I migrated my static React site to Astro'
 url: 'i-migrated-my-static-react-site-to-astro'
+description: 'So after buliding my site I realized I wanted (needed) a framework. Read the whole thing in my blog.'
 published: true
 pubDate: 10/11/2023
 author: 'Kristian Hannula'

@@ -1,3 +1,5 @@
+// default styles: https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
