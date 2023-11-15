@@ -19,7 +19,7 @@ export default {
               content: '""',
             },
             code: {
-              color: 'inherit',
+              color: '#f6c177',
             },
             h1: {
               color: 'theme("colors.secondary")',
