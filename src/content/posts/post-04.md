@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 })
 ```
 
-On hindisght, the solution was quite obvious from the documentation. I didn't realize I needed to add backticks and percentages to the statement.
+On hindsight, the solution was quite obvious from the documentation. I didn't realize I needed to add backticks and percentages to the statement.
 
 For a comparison, here's a working solution for a case sensitive query:
 
