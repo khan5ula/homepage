@@ -5,6 +5,9 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      colors: {
+        secondary: '#ffd000',
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -19,13 +22,13 @@ export default {
               color: 'inherit',
             },
             h1: {
-              color: '#ffd000',
+              color: 'theme("colors.secondary")',
             },
             h2: {
               color: 'antiquewhite',
             },
             a: {
-              color: '#ffd000',
+              color: 'theme("colors.secondary")',
               '&:hover': {
                 textDecorationThickness: '1px',
               },
