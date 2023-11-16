@@ -6,6 +6,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: 'antiquewhite',
         secondary: '#ffd000',
       },
       typography: {
@@ -25,7 +26,7 @@ export default {
               color: 'theme("colors.secondary")',
             },
             h2: {
-              color: 'antiquewhite',
+              color: 'theme("colors.primary")',
             },
             a: {
               color: 'theme("colors.secondary")',

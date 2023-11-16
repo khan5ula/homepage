@@ -14,3 +14,13 @@
     font-weight: 500;
   }
 }
+
+@layer components {
+  .h1-home {
+    color: theme('colors.secondary');
+    font-weight: bold;
+  }
+  .a-home {
+    text-decoration: underline;
+  }
+}
