@@ -8,7 +8,7 @@ author: 'Kristian Hannula'
 tags: ['css']
 ---
 
-This one was really bugging me out. The footer on my website was pushed to the bottom of the page by the wrapper div having min-height `screen`. It worked, but it pushed the footer below the page. I didn't like it, because if a page had only little content, the footer was still forced below the screen.
+This one was really bugging me out. The footer on my website was pushed to the bottom of the page by the wrapper div having min-height `screen`. It worked, but if a page had only little content, the footer was pushed below the screen. I didn't like it.
 
 I tried different approaches with flexbox, tables, and grids, as suggested on stackoverflow. None of the suggested solutions didn't work as I intended.
 
