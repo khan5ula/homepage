@@ -8,12 +8,14 @@ author: 'Kristian Hannula'
 tags: ['css']
 ---
 
-This one was really bugging me out. The footer on my website was pushed to the bottom of the page by giving the content wrapper min-height of `screen`. The solution worked, but it forced the footer below the page, and I didn't like how it looked on pages that had only little content.
+This one was really bugging me out. The footer on my website was pushed to the bottom of the page by the wrapper div having min-height `screen`. It worked, but it pushed the footer below the page. I didn't like it, because if a page had only little content, the footer was still forced below the screen.
 
-I tried different approaches with flexbox, tables, and grids, as suggested on stackoverflow. Finally, I found the working combination:
+I tried different approaches with flexbox, tables, and grids, as suggested on stackoverflow. None of the suggested solutions didn't work as I intended.
+
+Finally, after trial-and-error, I managed to forge a working combination:
 
 ```javascript
-<body class="flex flex-col min-h-[100vh]">
+<body class="flex flex-col min-h-screen">
   <main class="flex-1">
     <slot />
   </main>
@@ -23,4 +25,4 @@ I tried different approaches with flexbox, tables, and grids, as suggested on st
 </body>
 ```
 
-Stupid simple, right?
+Stupid simple, right? The key was to give the content the possibility to [scale if needed](https://tailwindcss.com/docs/flex#flex-1), while making the body, footer included, take max height of the screen.
