@@ -1,7 +1,7 @@
 ---
 title: 'Getting the source directory path in C'
 url: 'get-source-directory-path-in-c'
-description: 'Turned out I had never really thought about how to find the source code directory with a running C application. Here's how I did it.'
+description: 'Turned out I had never really thought about how to find the source code directory with a running C application.'
 published: true
 pubDate: 21/11/2023
 author: 'Kristian Hannula'
@@ -20,7 +20,7 @@ In my use case, I wanted to place the file to the same directory with the source
 
 I ended up getting the path to the executable with `"/proc/self/exe"`, and then stripping the string from the end until I had a path to the source of the app directory:
 
-```C
+```c
 int build_filepath(char* executablepath, int length, char* filepath) {
   int result = 0;
   int iterator = 0;
@@ -59,5 +59,4 @@ int get_index_of_src(char* path) {
   }
   return indexOfSrc;
 }
-
 ```
