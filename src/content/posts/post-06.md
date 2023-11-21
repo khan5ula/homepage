@@ -18,7 +18,7 @@ fptr = fopen(filename, "w");
 
 In my use case, I wanted to place the file to the same directory with the source code. More precisely, I wanted to go one directory up from `/src`.
 
-I ended up getting the path to the executable with `"/proc/self/exe"`, and then stripping the string from the end until I had a path to the source of the app directory:
+I ended up getting the path to the executable with `"/proc/self/exe"`, and then stripping the string from the end until I had a path to the root of the app directory:
 
 ```c
 int build_filepath(char* executablepath, int length, char* filepath) {
