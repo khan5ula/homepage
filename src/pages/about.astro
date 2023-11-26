@@ -4,11 +4,22 @@ import * as introduction from '../content/about/introduction.md'
 const Content = introduction.default
 ---
 
-<BaseLayout title="Welcome to Astro.">
-  <main class="flex justify-center">
-    <article class="prose">
-      <div class="flex justify-center"></div>
-      <Content />
-    </article>
-  </main>
-</BaseLayout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="About me - What do I do and what is this page for. - Kristian Hannula."
+    />
+    <title>Kristian Hannula - About Me</title>
+  </head>
+  <BaseLayout title="Welcome to Astro.">
+    <main class="flex justify-center">
+      <article class="prose">
+        <div class="flex justify-center"></div>
+        <Content />
+      </article>
+    </main>
+  </BaseLayout>
+
+</html>

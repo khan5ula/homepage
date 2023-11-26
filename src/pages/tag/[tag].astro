@@ -24,12 +24,24 @@ const { tag } = Astro.params
 const { posts } = Astro.props
 ---
 
-<BaseLayout pageTitle={tag}>
-  <article class="prose">
-    <div class="flex flex-wrap justify-center">
-      Posts tagged with <span class="text-[#ffd000] ml-2">{tag}</span>
-    </div>
-    <Bloglist posts={posts} />
-    <div class="text-right"><a href="/blog">← all blog posts</a></div>
-  </article>
-</BaseLayout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="All tags I've used in my blog posts. - Kristian Hannula."
+    />
+    <title>Kristian Hannula - Tags</title>
+  </head>
+  <BaseLayout pageTitle={tag}>
+    <article class="prose">
+      <div class="flex flex-wrap justify-center">
+        Posts tagged with <span class="text-[#ffd000] ml-2">{tag}</span>
+      </div>
+      <Bloglist posts={posts} />
+      <div class="text-right"><a href="/blog">← all blog posts</a></div>
+    </article>
+  </BaseLayout>
+
+
+</html>

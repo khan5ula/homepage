@@ -14,15 +14,27 @@ const tags = [
 ]
 ---
 
-<BaseLayout>
-  <html lang="en">
-    <div class="flex justify-center">
-      <body>
-        <article class="prose">
-          <Tags tags={tags} />
-          <Bloglist posts={allPosts} />
-        </article>
-      </body>
-    </div>
-  </html>
-</BaseLayout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="My quite tech oriented blog. Whenever I learn something cool, I like to share it. - Kristian Hannula."
+    />
+    <title>Kristian Hannula - Blog</title>
+  </head>
+  <BaseLayout>
+    <html lang="en">
+      <div class="flex justify-center">
+        <body>
+          <article class="prose">
+            <Tags tags={tags} />
+            <Bloglist posts={allPosts} />
+          </article>
+        </body>
+      </div>
+    </html>
+  </BaseLayout>
+
+
+</html>
