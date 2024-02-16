@@ -9,6 +9,9 @@ export default {
         primary: 'antiquewhite',
         secondary: '#ffd000',
       },
+      scale: {
+        11: '1.1',
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -36,6 +39,9 @@ export default {
             },
           },
         },
+      },
+      fontFamily: {
+        mono: ['Roboto'],
       },
     },
   },

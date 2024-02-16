@@ -104,7 +104,7 @@ const BlogPost = ({ markdown }: props) => {
 export default BlogPost
 ```
 
-Now, the overall look of the content was nice. The only issue was that there was no code highlighting. Apparently that didn't come with my lazy Typography solution. After some trial and errors, I got highlighting working on top of Typography with [react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter). The nice thing was that the highlighter comes with a big set of themes to select. I went with **tomorrow**:
+Now, the overall look of the content was nice. The only issue was that there was no code highlighting. Apparently that didn't come with my lazy Typography solution. After some trial and errors, I got highlighting working on top of Typography with [react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter). The nice thing was that the highlighter comes with a big set of themes to select. I went with _tomorrow_:
 
 ```javascript
 import Markdown from 'react-markdown'
