@@ -28,14 +28,16 @@ const shrug = '¯\\_(ツ)_/¯'
     const shrug = '¯\\_(ツ)_/¯'
     const button = document.querySelector('button.copyshrug')
     const alert = document.getElementById('copied-alert')
-    if (button && alert) {
+    if (button) {
       button.addEventListener('click', () => {
         console.log(shrug)
         navigator.clipboard.writeText(shrug)
-        alert.style.visibility = 'visible'
-        setTimeout(function () {
-          alert.style.visibility = 'hidden'
-        }, 1000)
+        if (alert) {
+          alert.style.visibility = 'visible'
+          setTimeout(function () {
+            alert.style.visibility = 'hidden'
+          }, 1000)
+        }
       })
     }
   </script>
