@@ -20,13 +20,12 @@ const shrug = '¯\\_(ツ)_/¯'
   </div>
   <button
     class="copyshrug cursor-pointer text-5xl font-mono text-black hover:scale-11 transition-transform duration-100 whitespace-nowrap"
-    onclick=""
   >
     {shrug}
   </button>
   <script>
     const handleClick = () => {
-      const onButtonClick = () => {
+      const onClick = () => {
         console.log(shrug)
         navigator.clipboard.writeText(shrug)
         if (alert) {
@@ -42,8 +41,8 @@ const shrug = '¯\\_(ツ)_/¯'
       const alert = document.getElementById('copied-alert')
 
       if (button) {
-        button.removeEventListener('click', onButtonClick)
-        button.addEventListener('click', onButtonClick)
+        button.removeEventListener('click', onClick) // in case there's previous
+        button.addEventListener('click', onClick)
       }
     }
 
