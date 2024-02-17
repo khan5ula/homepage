@@ -25,11 +25,8 @@ const shrug = '¯\\_(ツ)_/¯'
     {shrug}
   </button>
   <script>
-    const shrug = '¯\\_(ツ)_/¯'
-    const button = document.querySelector('button.copyshrug')
-    const alert = document.getElementById('copied-alert')
-    if (button) {
-      button.addEventListener('click', () => {
+    const handleClick = () => {
+      const onButtonClick = () => {
         console.log(shrug)
         navigator.clipboard.writeText(shrug)
         if (alert) {
@@ -38,7 +35,20 @@ const shrug = '¯\\_(ツ)_/¯'
             alert.style.visibility = 'hidden'
           }, 1000)
         }
-      })
+      }
+
+      const shrug = '¯\\_(ツ)_/¯'
+      const button = document.querySelector('button.copyshrug')
+      const alert = document.getElementById('copied-alert')
+
+      if (button) {
+        button.removeEventListener('click', onButtonClick)
+        button.addEventListener('click', onButtonClick)
+      }
     }
+
+    handleClick()
+
+    document.addEventListener('astro:after-swap', handleClick)
   </script>
 </div>
