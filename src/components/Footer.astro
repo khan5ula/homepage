@@ -1,19 +1,19 @@
 ---
-
+const date = new Date().getFullYear()
 ---
 
 <footer class="mt-10 flex justify-center items-center h-14 bg-slate-100">
-  <p class="text-sm text-black">© 2023 Kristian Hannula</p>
+  <p class="text-sm text-black">© {date} Kristian Hannula</p>
   <a href="https://github.com/khan5ula">
     <img
-      class="object-cover h-5 w-5 hover:opacity-90 cursor-pointer ml-5"
+      class="object-cover h-5 w-5 transition-transform duration-100 transform hover:scale-95 cursor-pointer ml-5"
       src={'/github-logo.png'}
       alt="GitHub logo"
     />
   </a>
   <a href="https://www.linkedin.com/in/khan5ula/">
     <img
-      class="object-cover h-5 w-5 marker:max-w-10 hover:opacity-90 cursor-pointer ml-6 mt-0.4"
+      class="object-cover h-5 w-5 marker:max-w-10 transition-transform duration-100 transform hover:scale-95 cursor-pointer ml-6 mt-0.4"
       src={'/linkedin-logo.png'}
       alt="LinkedIn logo"
     />
