@@ -1,0 +1,25 @@
+---
+interface Props {
+  label: string
+  textAreaId: string
+  buttonId: string
+  buttonLabel: string
+}
+
+const { label, textAreaId, buttonId, buttonLabel } = Astro.props as Props
+---
+
+<label for={textAreaId} class="block text-white text-center mb-2"
+  >{label}
+</label>
+<textarea
+  id={textAreaId}
+  class="p-2 mt-1 h-20 w-full max-w-full rounded-md text-black"></textarea>
+<div class="text-right">
+  <button
+    id={buttonId}
+    type="button"
+    class="bg-cyan-600 p-2 text-xs rounded-xl hover:bg-cyan-700 transition-transform duration-100 transform hover:scale-95"
+    >{buttonLabel}</button
+  >
+</div>
