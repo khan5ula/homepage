@@ -3,17 +3,15 @@ const shrug = '¯\\_(ツ)_/¯'
 ---
 
 <div
-  class="bg-yellow-400 h-max w-screen flex flex-col justify-center items-center pt-10 pb-24"
+  class="bg-yellow-400 h-max w-screen flex flex-col justify-center items-center pb-8"
   style="margin-left: -40px; margin-right: -40px"
 >
-  <div id="alert-container" class="relative flex mb-10 justify-center">
-    <div
-      class="bg-amber-600 px-4 py-3 rounded absolute invisible pointer-events-none"
-      role="alert"
-      id="copied-alert"
-    >
-      <strong class="font-bold">Copied!</strong>
-    </div>
+  <div
+    class="bg-slate-900 px-4 py-3 z-10 rounded absolute invisible pointer-events-none"
+    role="alert"
+    id="copied-alert"
+  >
+    <strong class="font-bold">Copied!</strong>
   </div>
   <div class="text-black m-4 text-center whitespace-nowrap pointer-events-none">
     Click to copy shrug
@@ -32,7 +30,7 @@ const shrug = '¯\\_(ツ)_/¯'
           alert.style.visibility = 'visible'
           setTimeout(function () {
             alert.style.visibility = 'hidden'
-          }, 1000)
+          }, 800)
         }
       }
 
