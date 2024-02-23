@@ -3,19 +3,38 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import Shrug from '../components/Shrug.astro'
 import Decoder from '../components/Decoder/Decoder.astro'
 import FileDecoder from '../components/FileDecoder/FileDecoder.astro'
+import '../styles/global.css'
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Things - Kristian Hannula" />
-    <title>Kristian Hannula - About Me</title>
+    <meta
+      name="description"
+      content="Some things I've built to learn javascript. Feel free to play around, nothing is saved or stored."
+    />
+    <title>Things - Kristian Hannula</title>
   </head>
   <BaseLayout>
     <div id="things-container">
-      <div id="shrug-container"><Shrug /></div>
-      <div id="decoder-container"><Decoder /></div>
-      <div id="img-decoder-container"><FileDecoder /></div>
+      <div
+        id="shrug-container"
+        class="thing-container from-slate-400 to-slate-500"
+      >
+        <Shrug />
+      </div>
+      <div
+        id="decoder-container"
+        class="thing-container from-slate-700 to-slate-800"
+      >
+        <Decoder />
+      </div>
+      <div
+        id="img-decoder-container"
+        class="thing-container from-slate-800 to-slate-900"
+      >
+        <FileDecoder />
+      </div>
     </div>
   </BaseLayout>
 

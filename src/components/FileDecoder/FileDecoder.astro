@@ -1,77 +1,66 @@
 ---
-
+import '../../styles/global.css'
 ---
 
-<div
-  class="bg-slate-500 w-screen flex justify-center flex-col text-center"
-  style="margin-left: -40px; margin-right: -40px; height: 500px;"
->
-  File to Base64
-  <form id="forms" class="space-y-2 w-full px-4 max-w-lg mx-auto">
-    <textarea
-      id="decodedResult"
-      class="p-2 mt-2 h-40 w-full max-w-full rounded-md text-black"></textarea>
-    <div class="text-right">
-      <label
-        for="filePicker"
-        class="cursor-pointer inline-block bg-cyan-600 p-2 text-xs rounded-xl hover:bg-cyan-700 transition-transform duration-100 transform hover:scale-95"
-        >Choose a file</label
-      >
-    </div>
-    <input id="filePicker" type="file" class="hidden" />
-  </form>
+File to Base64
+<form id="forms" class="space-y-2 w-full px-4 max-w-lg mx-auto">
+  <textarea id="decodedResult" class="h-40 comfy-text-area"></textarea>
+  <div class="text-right">
+    <label for="filePicker" class="submit-button">Choose a file</label>
+  </div>
+  <input id="filePicker" type="file" class="hidden" />
+</form>
 
-  <script>
-    const getFilePicker = () => document.getElementById('filePicker')
+<script>
+  const getFilePicker = () => document.getElementById('filePicker')
 
-    const resetFilePicker = () => {
-      const filePicker = getFilePicker()
-      if (filePicker instanceof HTMLInputElement) {
-        filePicker.value = ''
-      }
+  const resetFilePicker = () => {
+    const filePicker = getFilePicker()
+    if (filePicker instanceof HTMLInputElement) {
+      filePicker.value = ''
+    }
+  }
+
+  const initializeForm = () => {
+    const form = document.getElementById(
+      'decodedResult'
+    ) as HTMLTextAreaElement | null
+    if (form) form.value = ''
+
+    const filePicker = getFilePicker()
+    if (filePicker instanceof HTMLInputElement) {
+      filePicker.addEventListener('change', encode)
+    }
+  }
+
+  const encode = () => {
+    const filePicker = getFilePicker()
+    if (
+      !(filePicker instanceof HTMLInputElement) ||
+      !filePicker.files ||
+      filePicker.files.length < 1
+    ) {
+      return
     }
 
-    const initializeForm = () => {
+    const file = filePicker.files[0]
+    const fileReader = new FileReader()
+
+    fileReader.onload = () => {
       const form = document.getElementById(
         'decodedResult'
       ) as HTMLTextAreaElement | null
-      if (form) form.value = ''
+      const base64 = fileReader.result
 
-      const filePicker = getFilePicker()
-      if (filePicker instanceof HTMLInputElement) {
-        filePicker.addEventListener('change', encode)
+      if (form && typeof base64 === 'string') {
+        form.value = base64
       }
     }
 
-    const encode = () => {
-      const filePicker = getFilePicker()
-      if (
-        !(filePicker instanceof HTMLInputElement) ||
-        !filePicker.files ||
-        filePicker.files.length < 1
-      ) {
-        return
-      }
+    fileReader.readAsDataURL(file)
+    resetFilePicker()
+  }
 
-      const file = filePicker.files[0]
-      const fileReader = new FileReader()
-
-      fileReader.onload = () => {
-        const form = document.getElementById(
-          'decodedResult'
-        ) as HTMLTextAreaElement | null
-        const base64 = fileReader.result
-
-        if (form && typeof base64 === 'string') {
-          form.value = base64
-        }
-      }
-
-      fileReader.readAsDataURL(file)
-      resetFilePicker()
-    }
-
-    document.addEventListener('DOMContentLoaded', initializeForm)
-    document.addEventListener('astro:after-swap', initializeForm)
-  </script>
-</div>
+  document.addEventListener('DOMContentLoaded', initializeForm)
+  document.addEventListener('astro:after-swap', initializeForm)
+</script>

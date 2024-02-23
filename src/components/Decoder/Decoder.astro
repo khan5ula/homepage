@@ -2,94 +2,85 @@
 import Form from './Form.astro'
 ---
 
-<div
-  class="bg-slate-800 w-screen flex justify-center flex-col"
-  style="margin-left: -40px; margin-right: -40px; height: 500px;"
->
-  <form id="forms" class="space-y-2 w-full px-4 max-w-lg mx-auto">
-    <Form
-      label="Base64 to Text"
-      textAreaId="base64ToText"
-      buttonId="decodeButton"
-      buttonLabel="Decode"
-    />
-    <Form
-      label="Text to Base64"
-      textAreaId="textToBase64"
-      buttonId="encodeButton"
-      buttonLabel="Encode"
-    />
-  </form>
+<form id="forms" class="space-y-2 w-full px-4 max-w-lg mx-auto">
+  <Form
+    label="Base64 to Text"
+    textAreaId="base64ToText"
+    buttonId="decodeButton"
+    buttonLabel="Decode"
+  />
+  <Form
+    label="Text to Base64"
+    textAreaId="textToBase64"
+    buttonId="encodeButton"
+    buttonLabel="Encode"
+  />
+</form>
 
-  <script>
-    const errorMsg =
-      'ouch, something went wrong, please double-check the value you tried to decode/encode'
+<script>
+  const errorMsg =
+    'ouch, something went wrong, please double-check the value you tried to decode/encode'
 
-    const handleDecode = (event: MouseEvent) => {
-      event.preventDefault()
-      const base64content = (
-        document.getElementById('base64ToText') as HTMLTextAreaElement
-      ).value
-      try {
-        const decodedContent = atob(base64content)
-        ;(
-          document.getElementById('textToBase64') as HTMLTextAreaElement
-        ).value = decodedContent
-      } catch (error) {
-        console.error(`Error decoding Base64: ${error}`)
-        ;(
-          document.getElementById('textToBase64') as HTMLTextAreaElement
-        ).value = errorMsg
-      }
+  const handleDecode = (event: MouseEvent) => {
+    event.preventDefault()
+    const base64content = (
+      document.getElementById('base64ToText') as HTMLTextAreaElement
+    ).value
+    try {
+      const decodedContent = atob(base64content)
+      ;(document.getElementById('textToBase64') as HTMLTextAreaElement).value =
+        decodedContent
+    } catch (error) {
+      console.error(`Error decoding Base64: ${error}`)
+      ;(document.getElementById('textToBase64') as HTMLTextAreaElement).value =
+        errorMsg
     }
+  }
 
-    const handleEncode = (event: MouseEvent) => {
-      event.preventDefault()
-      const textContent = document.getElementById(
-        'textToBase64'
-      ) as HTMLTextAreaElement
-      try {
-        const encodedContent = btoa(textContent.value)
-        ;(
-          document.getElementById('base64ToText') as HTMLTextAreaElement
-        ).value = encodedContent
-      } catch (error) {
-        console.error(`Error encoding text: ${error}`)
-        ;(
-          document.getElementById('base64ToText') as HTMLTextAreaElement
-        ).value = errorMsg
-      }
+  const handleEncode = (event: MouseEvent) => {
+    event.preventDefault()
+    const textContent = document.getElementById(
+      'textToBase64'
+    ) as HTMLTextAreaElement
+    try {
+      const encodedContent = btoa(textContent.value)
+      ;(document.getElementById('base64ToText') as HTMLTextAreaElement).value =
+        encodedContent
+    } catch (error) {
+      console.error(`Error encoding text: ${error}`)
+      ;(document.getElementById('base64ToText') as HTMLTextAreaElement).value =
+        errorMsg
     }
+  }
 
-    const attachEventListeners = () => {
-      document
-        .getElementById('decodeButton')
-        ?.addEventListener('click', handleDecode)
-      document
-        .getElementById('encodeButton')
-        ?.addEventListener('click', handleEncode)
-    }
+  const attachEventListeners = () => {
+    document
+      .getElementById('decodeButton')
+      ?.addEventListener('click', handleDecode)
+    document
+      .getElementById('encodeButton')
+      ?.addEventListener('click', handleEncode)
+  }
 
-    const initializeForms = () => {
-      const base64ToText = document.getElementById(
-        'base64ToText'
-      ) as HTMLTextAreaElement | null
-      const textToBase64 = document.getElementById(
-        'textToBase64'
-      ) as HTMLTextAreaElement | null
+  const initializeForms = () => {
+    const base64ToText = document.getElementById(
+      'base64ToText'
+    ) as HTMLTextAreaElement | null
+    const textToBase64 = document.getElementById(
+      'textToBase64'
+    ) as HTMLTextAreaElement | null
 
-      if (base64ToText) base64ToText.value = ''
+    if (base64ToText) base64ToText.value = ''
 
-      if (textToBase64) textToBase64.value = ''
-    }
+    if (textToBase64) textToBase64.value = ''
+  }
 
-    const reinitialize = () => {
-      initializeForms()
-      attachEventListeners()
-    }
+  const reinitialize = () => {
+    initializeForms()
+    attachEventListeners()
+  }
 
-    document.addEventListener('DOMContentLoaded', reinitialize)
-    document.addEventListener('astro:after-swap', reinitialize)
-    reinitialize()
-  </script>
-</div>
+  document.addEventListener('DOMContentLoaded', reinitialize)
+  document.addEventListener('astro:after-swap', reinitialize)
+  reinitialize()
+</script>
