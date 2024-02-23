@@ -9,9 +9,7 @@ interface Props {
 const { label, textAreaId, buttonId, buttonLabel } = Astro.props as Props
 ---
 
-<label for={textAreaId} class="block text-white text-center mb-2"
-  >{label}
-</label>
+<label for={textAreaId} class="block text-white text-center">{label}</label>
 <textarea
   id={textAreaId}
   class="p-2 mt-1 h-20 w-full max-w-full rounded-md text-black"></textarea>
