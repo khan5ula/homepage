@@ -4,15 +4,16 @@ import '../../styles/global.css'
 ---
 
 <div
-  class="bg-slate-900 px-4 py-3 z-10 rounded absolute invisible pointer-events-none top-1/3"
+  class="bg-white px-4 py-3 z-10 rounded invisible pointer-events-none"
   role="alert"
   id="copied-alert"
 >
-  <strong class="font-bold">Copied!</strong>
+  <strong class="font-bold text-black">Copied!</strong>
 </div>
-<div class="text-black m-4 text-center select-none">Click to copy shrug</div>
+<div class="m-4 text-center select-none">Click to copy shrug</div>
 <button
-  class="copyshrug cursor-pointer text-5xl font-mono text-black hover:scale-11 transition-transform duration-100 whitespace-nowrap"
+  id="shrug-button"
+  class="drop-shadow-lg bg-slate-700 thing-button text-3xl p-8 rounded-3xl"
 >
   {shrug}
 </button>
@@ -30,7 +31,7 @@ import '../../styles/global.css'
     }
 
     const shrug = '¯\\_(ツ)_/¯'
-    const button = document.querySelector('button.copyshrug')
+    const button = document.getElementById('shrug-button')
     const alert = document.getElementById('copied-alert')
 
     if (button) {

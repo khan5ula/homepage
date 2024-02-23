@@ -28,10 +28,7 @@ const orderedPosts = posts
       orderedPosts.map((post) => (
         <tr>
           <td class="py-7">
-            <a
-              href={`/posts/${post.data.url}/`}
-              class="cursor-pointer underline underline-offset-4 hover:decoration-[1.5px] text-xl"
-            >
+            <a href={`/posts/${post.data.url}/`} class="list-link text-xl">
               {post.data.title}
             </a>
           </td>

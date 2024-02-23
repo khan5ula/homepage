@@ -26,13 +26,13 @@ export default {
               color: '#f6c177',
             },
             h1: {
-              color: 'theme("colors.secondary")',
+              color: '#ffd000',
             },
             h2: {
-              color: 'theme("colors.primary")',
+              color: 'antiquewhite',
             },
             a: {
-              color: 'theme("colors.secondary")',
+              color: '#ffd000',
               '&:hover': {
                 textDecorationThickness: '1px',
               },

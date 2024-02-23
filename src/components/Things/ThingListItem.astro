@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string
+  id: string
+}
+
+const { title, id } = Astro.props
+---
+
+<li
+  class="list-link text-secondary my-5 select-none"
+  onclick={`scrollToContainer('${id}')`}
+>
+  {title}
+</li>

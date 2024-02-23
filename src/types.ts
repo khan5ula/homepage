@@ -5,3 +5,9 @@ export type Post = {
   collection: string
   data: any
 }
+
+declare global {
+  interface Window {
+    scrollToContainer: any
+  }
+}

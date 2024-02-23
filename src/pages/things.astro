@@ -3,7 +3,20 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import Shrug from '../components/Things/Shrug.astro'
 import Decoder from '../components/Things/Decoder/Decoder.astro'
 import FileDecoder from '../components/Things/FileDecoder.astro'
+import ThingListItem from '../components/Things/ThingListItem.astro'
 import '../styles/global.css'
+
+const thingList = [
+  { title: 'Copy Shrug', id: 'shrug-container' },
+  {
+    title: 'Base64 encoder / decoder for text',
+    id: 'decoder-container',
+  },
+  {
+    title: 'Base64 encoder for files',
+    id: 'img-decoder-container',
+  },
+]
 ---
 
 <html lang="en">
@@ -14,25 +27,40 @@ import '../styles/global.css'
       content="Some things I've built to learn javascript. Feel free to play around, nothing is saved or stored."
     />
     <title>Things - Kristian Hannula</title>
+    <script>
+      console.log('click')
+      window.scrollToContainer = (id: string) => {
+        const element = document.getElementById(id)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }
+    </script>
   </head>
   <BaseLayout>
+    <div id="things-header" class="text-center py-8">
+      <p>
+        Different <span class="italic">"things"</span> I've done to play around javascript.
+      </p>
+      <p class="mt-6">
+        Feel free to try them. My site won't save any submissions.
+      </p>
+      <ul class="mt-6">
+        {
+          thingList.map((thing) => (
+            <ThingListItem title={thing.title} id={thing.id} />
+          ))
+        }
+      </ul>
+    </div>
     <div id="things-container">
-      <div
-        id="shrug-container"
-        class="thing-container from-slate-400 to-slate-500"
-      >
+      <div id="shrug-container" class="thing-container">
         <Shrug />
       </div>
-      <div
-        id="decoder-container"
-        class="thing-container from-slate-700 to-slate-800"
-      >
+      <div id="decoder-container" class="thing-container">
         <Decoder />
       </div>
-      <div
-        id="img-decoder-container"
-        class="thing-container from-slate-800 to-slate-900"
-      >
+      <div id="img-decoder-container" class="thing-container">
         <FileDecoder />
       </div>
     </div>

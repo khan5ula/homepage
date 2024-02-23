@@ -26,23 +26,27 @@
 }
 
 @layer utilities {
-  .submit-button {
+  .thing-button {
     cursor: pointer;
-    padding: 0.5rem;
     display: inline-block;
     background-color: rgb(8 145 178 / var(--tw-bg-opacity));
-    font-size: 0.75rem /* 12px */;
-    line-height: 1rem /* 16px */;
-    border-radius: 0.75rem;
     transition-duration: 100ms;
   }
-  .submit-button:hover {
+
+  .thing-button:hover {
     transform: scale(0.95);
     background-color: rgb(14 116 144 / var(--tw-bg-opacity));
   }
 
-  .submit-button:active {
+  .thing-button:active {
     background-color: rgb(21 94 117 / var(--tw-bg-opacity));
+  }
+
+  .submit-button {
+    font-size: 0.75rem /* 12px */;
+    line-height: 1rem /* 16px */;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
   }
 
   .comfy-text-area {
@@ -56,7 +60,7 @@
   }
 
   .thing-container {
-    background-image: radial-gradient(circle at top, var(--tw-gradient-stops));
+    background-image: radial-gradient(circle at top, #334155, #0f172a);
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -64,6 +68,16 @@
     align-items: center;
     margin-left: -40px;
     margin-right: -40px;
-    height: 500px;
+    height: 100vh;
+  }
+
+  .list-link {
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+  }
+
+  .list-link:hover {
+    text-decoration-thickness: 1.5px;
   }
 }
