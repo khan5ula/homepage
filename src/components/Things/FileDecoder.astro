@@ -39,7 +39,7 @@ import '../../styles/global.css'
     if (textArea) {
       setTimeout(() => {
         textArea.addEventListener('click', () => textArea.select())
-        textArea.addEventListener('focus', () => textArea.value.select())
+        textArea.addEventListener('focus', () => textArea.select())
       }, 50)
     }
   }
