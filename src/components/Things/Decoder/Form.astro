@@ -6,12 +6,14 @@ interface Props {
   buttonLabel: string
 }
 
-import '../../styles/global.css'
+import '../../../styles/global.css'
 
 const { label, textAreaId, buttonId, buttonLabel } = Astro.props as Props
 ---
 
-<label for={textAreaId} class="block text-white text-center">{label}</label>
+<label for={textAreaId} class="block text-white text-center select-none"
+  >{label}</label
+>
 <textarea id={textAreaId} class="comfy-text-area h-20"></textarea>
 <div class="text-right">
   <button id={buttonId} type="button" class="submit-button"

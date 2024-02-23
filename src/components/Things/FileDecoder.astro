@@ -2,7 +2,7 @@
 import '../../styles/global.css'
 ---
 
-File to Base64
+<div class="select-none">File to Base64</div>
 <form id="forms" class="space-y-2 w-full px-4 max-w-lg mx-auto">
   <textarea id="decodedResult" class="h-40 comfy-text-area"></textarea>
   <div class="text-right">
@@ -13,6 +13,8 @@ File to Base64
 
 <script>
   const getFilePicker = () => document.getElementById('filePicker')
+  const getTextArea = () =>
+    document.getElementById('decodedResult') as HTMLTextAreaElement | null
 
   const resetFilePicker = () => {
     const filePicker = getFilePicker()
@@ -21,15 +23,24 @@ File to Base64
     }
   }
 
-  const initializeForm = () => {
-    const form = document.getElementById(
-      'decodedResult'
-    ) as HTMLTextAreaElement | null
-    if (form) form.value = ''
+  const initializeTextArea = () => {
+    const textArea = getTextArea()
+    if (textArea) textArea.value = ''
 
     const filePicker = getFilePicker()
     if (filePicker instanceof HTMLInputElement) {
       filePicker.addEventListener('change', encode)
+    }
+    selectAll()
+  }
+
+  const selectAll = () => {
+    const textArea = getTextArea()
+    if (textArea) {
+      setTimeout(() => {
+        textArea.addEventListener('click', () => textArea.select())
+        textArea.addEventListener('focus', () => textArea.value.select())
+      }, 50)
     }
   }
 
@@ -61,6 +72,6 @@ File to Base64
     resetFilePicker()
   }
 
-  document.addEventListener('DOMContentLoaded', initializeForm)
-  document.addEventListener('astro:after-swap', initializeForm)
+  document.addEventListener('DOMContentLoaded', initializeTextArea)
+  document.addEventListener('astro:after-swap', initializeTextArea)
 </script>
