@@ -41,7 +41,8 @@ export default {
         },
       },
       fontFamily: {
-        mono: ['Roboto'],
+        sans: ['Roboto', 'sans-serif'],
+        mono: ['Roboto Mono', 'monospace'],
       },
     },
   },
