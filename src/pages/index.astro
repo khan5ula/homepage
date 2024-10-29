@@ -1,25 +1,29 @@
 ---
+import { getCollection } from 'astro:content'
 import BaseLayout from '../layouts/BaseLayout.astro'
+import Tags from '../components/Tags.astro'
+import Bloglist from '../components/Bloglist.astro'
+import '../styles/global.css'
+const allPosts = await getCollection('posts')
+const tags = [
+  ...new Set(
+    allPosts
+      .filter((post) => post.data.published)
+      .map((post) => post.data.tags)
+      .flat()
+  ),
+]
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="My homepage and my contribution to the ever-growing garbage pile. Check out my links and my blog."
-    />
-    <title>Kristian Hannula - Homepage</title>
-  </head>
-</html>
 <BaseLayout>
-  <div class="text-center mt-8 md:mt-40 space-y-6">
-    <h1>Welcome :)</h1>
-    <h1 class="h1-home">
-      This is my contribution to the <a
-        class="a-home hover:decoration-[3px]"
-        href="https://en.wikipedia.org/wiki/Internet">pile of garbage</a
-      >
-    </h1>
-  </div>
+  <html lang="en">
+    <div class="flex justify-center">
+      <body>
+        <article class="prose">
+          <Tags tags={tags} />
+          <Bloglist posts={allPosts} />
+        </article>
+      </body>
+    </div>
+  </html>
 </BaseLayout>

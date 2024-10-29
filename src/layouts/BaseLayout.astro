@@ -1,7 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
 import Footer from '../components/Footer.astro'
-import Navbar from '../components/Navbar.astro'
 import '../styles/global.css'
 ---
 
@@ -31,12 +30,7 @@ import '../styles/global.css'
     <ViewTransitions />
   </head>
 
-  <body class="bg-slate-900 flex flex-col min-h-screen">
-    <aside
-      class="sticky top-0 h-14 flex justify-center items-center bg-slate-900 border-solid border-b-[1px] border-slate-400 z-50"
-    >
-      <Navbar />
-    </aside>
+  <body class="bg-gray-900 flex flex-col min-h-screen">
     <main class="flex-1 pb-5 mx-10 md:ml-auto md:mr-auto">
       <slot />
     </main>

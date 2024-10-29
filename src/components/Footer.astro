@@ -1,21 +1,7 @@
 ---
-const date = new Date().getFullYear()
+const year = new Date().getFullYear()
 ---
 
-<footer class="mt-10 flex justify-center items-center h-14 bg-slate-100">
-  <p class="text-sm text-black">© {date} Kristian Hannula</p>
-  <a href="https://github.com/khan5ula">
-    <img
-      class="object-cover h-5 w-5 transition-transform duration-100 transform hover:scale-95 cursor-pointer ml-5"
-      src={'/github-logo.png'}
-      alt="GitHub logo"
-    />
-  </a>
-  <a href="https://www.linkedin.com/in/khan5ula/">
-    <img
-      class="object-cover h-5 w-5 marker:max-w-10 transition-transform duration-100 transform hover:scale-95 cursor-pointer ml-6 mt-0.4"
-      src={'/linkedin-logo.png'}
-      alt="LinkedIn logo"
-    />
-  </a>
+<footer class="mt-10 flex justify-center items-center h-14 ">
+  <p class="text-sm select-none">{year} khan5ula</p>
 </footer>
