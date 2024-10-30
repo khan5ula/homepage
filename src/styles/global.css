@@ -25,6 +25,12 @@ a:hover {
   a {
     text-decoration-line: none;
   }
+
+  tr,
+  td {
+    border-bottom: 1px solid;
+    border-color: #c7d2fe;
+  }
 }
 
 @layer utilities {

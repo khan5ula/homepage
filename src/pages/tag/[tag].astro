@@ -36,7 +36,7 @@ const { posts } = Astro.props
   <BaseLayout pageTitle={tag}>
     <article class="prose">
       <div class="flex flex-wrap justify-center mt-4">
-        Posts tagged with <span class="text-secondary ml-2">{tag}</span>
+        <span class="cursor-default">Posts tagged with <span class="text-secondary ml-1">{tag}</span></span>
       </div>
       <Bloglist posts={posts} />
       <div class="text-right"><a href="/">← all posts</a></div>
